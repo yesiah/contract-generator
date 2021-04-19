@@ -61,6 +61,8 @@ def party_a_name_widgets():
     label = create_label("Party A Name")
     control = create_combo_box()
     control.addItems(party_a_name_list)
+    control.setCurrentIndex(-1)
+    control.setPlaceholderText("--- Please select Party A Name ---")
     return [label, control]
 
 def party_a_representative_widgets():
@@ -99,7 +101,7 @@ def payment_method_widgets():
     label = create_label("Payment Method")
     control = create_combo_box()
     control.addItems(payment_method_list)
-    control.setPlaceholderText("--- Place select a payment method ---")
+    control.setPlaceholderText("--- Please select a payment method ---")
     control.setCurrentIndex(-1)
     return [label, control]
 
