@@ -121,6 +121,9 @@ class MyWidget(QtWidgets.QWidget):
                 self.layout.addWidget(widget, row, col)
                 col = col + 1
             row = row + 1
+        
+        if Field.PaymentMethod in self.widget_dict:
+            self.widget_dict[Field.PaymentMethod][1].currentTextChanged.connect(self.on_payment_method_changed)
 
         self.execute_button = QtWidgets.QPushButton("Execute")
         self.execute_button.clicked.connect(self.on_execute)
@@ -140,6 +143,10 @@ class MyWidget(QtWidgets.QWidget):
         template_path = root_path / "contract-templates/cht/中文契約範本.txt"
         txt = texts_pass_one(template_path, party_a_name, party_b_name, start_date, signature_date)
         return txt
+
+    @QtCore.Slot()
+    def on_payment_method_changed(self, value):
+        print(value)
 
     @QtCore.Slot()
     def on_execute(self):
