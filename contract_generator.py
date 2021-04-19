@@ -31,7 +31,7 @@ def token2keywidget(x):
         "party_b_representative": (Field.PartyBRepresentative, field_widget.party_b_representative_widgets()),
         "party_b_registered_address": (Field.PartyBRegisteredAddress, field_widget.party_b_registered_address_widgets()),
         "signature_date": (Field.SignatureDate, field_widget.signature_date_widgets()),
-        "payment_method": (Field.PaymentMethod, field_widget.signature_date_widgets())
+        "payment_method": (Field.PaymentMethod, field_widget.payment_method_widgets())
     }.get(x)
 
 def zh_tw_locale():
@@ -111,7 +111,8 @@ class MyWidget(QtWidgets.QWidget):
 
         self.layout.setRowMinimumHeight(1, 15)
 
-        dynamic_fields = sorted(parse_fields("/Users/yhh/projects/kkday-auto-pdf/contract-templates/cht/中文契約範本.txt"))
+        dynamic_fields = sorted(parse_fields("/Users/yhh/github-repo/contract-generator/contract-templates/cht/中文契約範本.txt"))
+        print(dynamic_fields)
         row = 2
         self.widget_dict = dict(map(token2keywidget, dynamic_fields))
         for widgets in self.widget_dict.values():

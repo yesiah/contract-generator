@@ -93,9 +93,14 @@ def signature_date_widgets():
     control = create_popup_date_edit()
     return [label, control]
 
+payment_method_list = ["逐筆結", "預存款", "雙週結"]
+
 def payment_method_widgets():
     label = create_label("Payment Method")
     control = create_combo_box()
+    control.addItems(payment_method_list)
+    control.setPlaceholderText("--- Place select a payment method ---")
+    control.setCurrentIndex(-1)
     return [label, control]
 
 # currency (combo box 十幾種)
