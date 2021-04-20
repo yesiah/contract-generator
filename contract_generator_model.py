@@ -26,17 +26,19 @@ class Ui_MainWindow(object):
         self.scrollArea = QScrollArea(self.centralwidget)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setGeometry(QRect(10, 10, 771, 581))
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
         self.scrollArea.setSizePolicy(sizePolicy)
         self.scrollArea.setMinimumSize(QSize(0, 0))
-        self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.scrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 769, 742))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 769, 732))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.gridLayout_3 = QGridLayout()
@@ -63,6 +65,8 @@ class Ui_MainWindow(object):
 
         self.dateEdit = QDateEdit(self.scrollAreaWidgetContents)
         self.dateEdit.setObjectName(u"dateEdit")
+        self.dateEdit.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
+        self.dateEdit.setCalendarPopup(True)
 
         self.gridLayout_3.addWidget(self.dateEdit, 10, 1, 1, 1)
 
@@ -77,6 +81,7 @@ class Ui_MainWindow(object):
 
         self.dateEdit_3 = QDateEdit(self.scrollAreaWidgetContents)
         self.dateEdit_3.setObjectName(u"dateEdit_3")
+        self.dateEdit_3.setCalendarPopup(True)
 
         self.gridLayout_3.addWidget(self.dateEdit_3, 13, 1, 1, 1)
 
@@ -92,6 +97,7 @@ class Ui_MainWindow(object):
 
         self.dateEdit_2 = QDateEdit(self.scrollAreaWidgetContents)
         self.dateEdit_2.setObjectName(u"dateEdit_2")
+        self.dateEdit_2.setCalendarPopup(True)
 
         self.gridLayout_3.addWidget(self.dateEdit_2, 11, 1, 1, 1)
 
@@ -176,16 +182,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.lineEdit_4, 8, 1, 1, 3)
 
+        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_3.addItem(self.verticalSpacer_9, 1, 1, 1, 1)
+
 
         self.verticalLayout.addLayout(self.gridLayout_3)
 
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer_5)
-
-        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer_8)
 
         self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -414,18 +420,27 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Contract Generator", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Execute", None))
+        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Representative ---", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Party B Registered Address", None))
+        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Name ---", None))
+        self.comboBox_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Select a language ---", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Party B Representative", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Party A Name", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Party B Name", None))
+        self.comboBox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Name ---", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"End Date", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Party A Representative", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Signature Date", None))
+        self.comboBox_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Representative ---", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Party A Registered Address", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Language", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Start Date", None))
+        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party A Registered Address ---", None))
+        self.lineEdit_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Registered Address ---", None))
+        self.comboBox_5.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Currency ---", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Currency", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Payment Method", None))
+        self.comboBox_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Payment Method ---", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Cross Border Payment", None))
         self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Yes", None))
         self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"No", None))

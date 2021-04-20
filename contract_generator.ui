@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="sizePolicy">
-     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
@@ -49,10 +49,16 @@
      </size>
     </property>
     <property name="verticalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOn</enum>
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
     </property>
     <property name="widgetResizable">
      <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
     <widget class="QWidget" name="scrollAreaWidgetContents">
      <property name="geometry">
@@ -60,14 +66,18 @@
        <x>0</x>
        <y>0</y>
        <width>769</width>
-       <height>742</height>
+       <height>732</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="7" column="1">
-         <widget class="QLineEdit" name="lineEdit_3"/>
+         <widget class="QLineEdit" name="lineEdit_3">
+          <property name="placeholderText">
+           <string>  --- Party B Representative ---</string>
+          </property>
+         </widget>
         </item>
         <item row="8" column="0">
          <widget class="QLabel" name="label_9">
@@ -80,7 +90,11 @@
          </widget>
         </item>
         <item row="6" column="1">
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="placeholderText">
+           <string>  --- Party B Name ---</string>
+          </property>
+         </widget>
         </item>
         <item row="12" column="0">
          <spacer name="verticalSpacer_4">
@@ -96,10 +110,21 @@
          </spacer>
         </item>
         <item row="10" column="1">
-         <widget class="QDateEdit" name="dateEdit"/>
+         <widget class="QDateEdit" name="dateEdit">
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::UpDownArrows</enum>
+          </property>
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="comboBox_2"/>
+         <widget class="QComboBox" name="comboBox_2">
+          <property name="placeholderText">
+           <string>--- Select a language ---</string>
+          </property>
+         </widget>
         </item>
         <item row="5" column="0">
          <spacer name="verticalSpacer_2">
@@ -115,7 +140,11 @@
          </spacer>
         </item>
         <item row="13" column="1">
-         <widget class="QDateEdit" name="dateEdit_3"/>
+         <widget class="QDateEdit" name="dateEdit_3">
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item row="0" column="2">
          <spacer name="horizontalSpacer_2">
@@ -141,7 +170,11 @@
          </widget>
         </item>
         <item row="11" column="1">
-         <widget class="QDateEdit" name="dateEdit_2"/>
+         <widget class="QDateEdit" name="dateEdit_2">
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label">
@@ -164,7 +197,11 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QComboBox" name="comboBox"/>
+         <widget class="QComboBox" name="comboBox">
+          <property name="placeholderText">
+           <string>--- Party A Name ---</string>
+          </property>
+         </widget>
         </item>
         <item row="11" column="0">
          <widget class="QLabel" name="label_5">
@@ -210,7 +247,11 @@
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QComboBox" name="comboBox_3"/>
+         <widget class="QComboBox" name="comboBox_3">
+          <property name="placeholderText">
+           <string>--- Party A Representative ---</string>
+          </property>
+         </widget>
         </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_7">
@@ -272,28 +313,36 @@
          </spacer>
         </item>
         <item row="4" column="1" colspan="3">
-         <widget class="QLineEdit" name="lineEdit_2"/>
+         <widget class="QLineEdit" name="lineEdit_2">
+          <property name="placeholderText">
+           <string>  --- Party A Registered Address ---</string>
+          </property>
+         </widget>
         </item>
         <item row="8" column="1" colspan="3">
-         <widget class="QLineEdit" name="lineEdit_4"/>
+         <widget class="QLineEdit" name="lineEdit_4">
+          <property name="placeholderText">
+           <string>  --- Party B Registered Address ---</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <spacer name="verticalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </item>
       <item>
        <spacer name="verticalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <spacer name="verticalSpacer_8">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -321,7 +370,11 @@
       <item>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="1" column="2">
-         <widget class="QComboBox" name="comboBox_5"/>
+         <widget class="QComboBox" name="comboBox_5">
+          <property name="placeholderText">
+           <string>--- Currency ---</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="1">
          <widget class="QLabel" name="label_12">
@@ -419,7 +472,11 @@
          </spacer>
         </item>
         <item row="0" column="2">
-         <widget class="QComboBox" name="comboBox_4"/>
+         <widget class="QComboBox" name="comboBox_4">
+          <property name="placeholderText">
+           <string>--- Payment Method ---</string>
+          </property>
+         </widget>
         </item>
         <item row="0" column="3">
          <spacer name="horizontalSpacer">
