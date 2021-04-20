@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>794</width>
+    <width>793</width>
     <height>680</height>
    </rect>
   </property>
@@ -66,21 +66,21 @@
        <x>0</x>
        <y>0</y>
        <width>769</width>
-       <height>732</height>
+       <height>765</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="7" column="1">
-         <widget class="QLineEdit" name="lineEdit_3">
+         <widget class="QLineEdit" name="party_b_representative_edit">
           <property name="placeholderText">
            <string>  --- Party B Representative ---</string>
           </property>
          </widget>
         </item>
         <item row="8" column="0">
-         <widget class="QLabel" name="label_9">
+         <widget class="QLabel" name="party_b_registered_address_label">
           <property name="text">
            <string>Party B Registered Address</string>
           </property>
@@ -90,7 +90,7 @@
          </widget>
         </item>
         <item row="6" column="1">
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="party_b_name_edit">
           <property name="placeholderText">
            <string>  --- Party B Name ---</string>
           </property>
@@ -110,7 +110,7 @@
          </spacer>
         </item>
         <item row="10" column="1">
-         <widget class="QDateEdit" name="dateEdit">
+         <widget class="QDateEdit" name="start_date_selector">
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::UpDownArrows</enum>
           </property>
@@ -120,7 +120,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="comboBox_2">
+         <widget class="QComboBox" name="lang_selector">
           <property name="placeholderText">
            <string>--- Select a language ---</string>
           </property>
@@ -140,7 +140,7 @@
          </spacer>
         </item>
         <item row="13" column="1">
-         <widget class="QDateEdit" name="dateEdit_3">
+         <widget class="QDateEdit" name="signature_date_selector">
           <property name="calendarPopup">
            <bool>true</bool>
           </property>
@@ -160,7 +160,7 @@
          </spacer>
         </item>
         <item row="7" column="0">
-         <widget class="QLabel" name="label_8">
+         <widget class="QLabel" name="party_b_representative_label">
           <property name="text">
            <string>Party B Representative</string>
           </property>
@@ -170,14 +170,14 @@
          </widget>
         </item>
         <item row="11" column="1">
-         <widget class="QDateEdit" name="dateEdit_2">
+         <widget class="QDateEdit" name="end_date_selector">
           <property name="calendarPopup">
            <bool>true</bool>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="party_a_name_label">
           <property name="text">
            <string>Party A Name</string>
           </property>
@@ -187,7 +187,7 @@
          </widget>
         </item>
         <item row="6" column="0">
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="party_b_name_label">
           <property name="text">
            <string>Party B Name</string>
           </property>
@@ -197,14 +197,14 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QComboBox" name="comboBox">
+         <widget class="QComboBox" name="party_a_name_selector">
           <property name="placeholderText">
            <string>--- Party A Name ---</string>
           </property>
          </widget>
         </item>
         <item row="11" column="0">
-         <widget class="QLabel" name="label_5">
+         <widget class="QLabel" name="end_date_label">
           <property name="text">
            <string>End Date</string>
           </property>
@@ -227,7 +227,7 @@
          </spacer>
         </item>
         <item row="3" column="0">
-         <widget class="QLabel" name="label_6">
+         <widget class="QLabel" name="party_a_representative_label">
           <property name="text">
            <string>Party A Representative</string>
           </property>
@@ -237,7 +237,7 @@
          </widget>
         </item>
         <item row="13" column="0">
-         <widget class="QLabel" name="label_10">
+         <widget class="QLabel" name="signature_date_label">
           <property name="text">
            <string>Signature Date</string>
           </property>
@@ -247,14 +247,14 @@
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QComboBox" name="comboBox_3">
+         <widget class="QComboBox" name="party_a_representative_selector">
           <property name="placeholderText">
            <string>--- Party A Representative ---</string>
           </property>
          </widget>
         </item>
         <item row="4" column="0">
-         <widget class="QLabel" name="label_7">
+         <widget class="QLabel" name="party_a_registered_address_label">
           <property name="text">
            <string>Party A Registered Address</string>
           </property>
@@ -264,7 +264,7 @@
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QLabel" name="label_3">
+         <widget class="QLabel" name="lang_label">
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
           </property>
@@ -290,7 +290,7 @@
          </spacer>
         </item>
         <item row="10" column="0">
-         <widget class="QLabel" name="label_4">
+         <widget class="QLabel" name="start_date_label">
           <property name="text">
            <string>Start Date</string>
           </property>
@@ -313,14 +313,14 @@
          </spacer>
         </item>
         <item row="4" column="1" colspan="3">
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="party_a_registered_address_edit">
           <property name="placeholderText">
            <string>  --- Party A Registered Address ---</string>
           </property>
          </widget>
         </item>
         <item row="8" column="1" colspan="3">
-         <widget class="QLineEdit" name="lineEdit_4">
+         <widget class="QLineEdit" name="party_b_registered_address_edit">
           <property name="placeholderText">
            <string>  --- Party B Registered Address ---</string>
           </property>
@@ -370,14 +370,14 @@
       <item>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="1" column="2">
-         <widget class="QComboBox" name="comboBox_5">
+         <widget class="QComboBox" name="currency_selector">
           <property name="placeholderText">
            <string>--- Currency ---</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLabel" name="label_12">
+         <widget class="QLabel" name="currency_label">
           <property name="text">
            <string>Currency</string>
           </property>
@@ -452,7 +452,7 @@
          </spacer>
         </item>
         <item row="0" column="1">
-         <widget class="QLabel" name="label_11">
+         <widget class="QLabel" name="payment_method_label">
           <property name="text">
            <string>Payment Method</string>
           </property>
@@ -472,7 +472,7 @@
          </spacer>
         </item>
         <item row="0" column="2">
-         <widget class="QComboBox" name="comboBox_4">
+         <widget class="QComboBox" name="payment_method_selector">
           <property name="placeholderText">
            <string>--- Payment Method ---</string>
           </property>
@@ -492,7 +492,7 @@
          </spacer>
         </item>
         <item row="1" column="3">
-         <widget class="QGroupBox" name="groupBox">
+         <widget class="QGroupBox" name="cross_boader_payment_group">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -513,14 +513,14 @@
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <widget class="QRadioButton" name="radioButton">
+             <widget class="QRadioButton" name="cross_border_payment_yes">
               <property name="text">
                <string>Yes</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="radioButton_2">
+             <widget class="QRadioButton" name="cross_border_payment_no">
               <property name="text">
                <string>No</string>
               </property>
@@ -533,99 +533,114 @@
        </layout>
       </item>
       <item>
-       <spacer name="verticalSpacer_6">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="1" colspan="3">
-         <widget class="QLineEdit" name="lineEdit_5"/>
+         <widget class="QLineEdit" name="bank_account_edit">
+          <property name="placeholderText">
+           <string>  --- Bank Account ---</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QLabel" name="label_14">
+         <widget class="QLabel" name="account_name_label">
           <property name="text">
            <string>Account Name</string>
           </property>
          </widget>
         </item>
         <item row="2" column="3">
-         <widget class="QLineEdit" name="lineEdit_8"/>
+         <widget class="QLineEdit" name="bank_code_edit">
+          <property name="placeholderText">
+           <string>  --- Bank Code ---</string>
+          </property>
+         </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="lineEdit_7"/>
+         <widget class="QLineEdit" name="name_of_the_bank_edit">
+          <property name="placeholderText">
+           <string>  --- Name of the Bank ---</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="1" colspan="3">
-         <widget class="QLineEdit" name="lineEdit_6"/>
+         <widget class="QLineEdit" name="account_name_edit">
+          <property name="placeholderText">
+           <string>  --- Account Name ---</string>
+          </property>
+         </widget>
         </item>
         <item row="3" column="2">
-         <widget class="QLabel" name="label_18">
+         <widget class="QLabel" name="branch_code_label">
           <property name="text">
            <string>Branch Code</string>
           </property>
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QLineEdit" name="lineEdit_9"/>
+         <widget class="QLineEdit" name="name_of_the_branch_edit">
+          <property name="placeholderText">
+           <string>  --- Name of the Branch ---</string>
+          </property>
+         </widget>
         </item>
         <item row="4" column="2">
-         <widget class="QLabel" name="label_20">
+         <widget class="QLabel" name="country_of_the_bank_receiving_the_payment_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Country of the Bank&lt;br/&gt;Receiving the Payment&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QLabel" name="label_13">
+         <widget class="QLabel" name="bank_account_label">
           <property name="text">
            <string>Bank Account</string>
           </property>
          </widget>
         </item>
         <item row="2" column="2">
-         <widget class="QLabel" name="label_16">
+         <widget class="QLabel" name="bank_code_label">
           <property name="text">
            <string>Bank Code</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QLabel" name="label_15">
+         <widget class="QLabel" name="name_of_the_bank_label">
           <property name="text">
            <string>Name of the Bank</string>
           </property>
          </widget>
         </item>
         <item row="3" column="3">
-         <widget class="QLineEdit" name="lineEdit_10"/>
+         <widget class="QLineEdit" name="branch_code_edit">
+          <property name="placeholderText">
+           <string>  --- Branch Code ---</string>
+          </property>
+         </widget>
         </item>
         <item row="4" column="0">
-         <widget class="QLabel" name="label_19">
+         <widget class="QLabel" name="swift_code_label">
           <property name="text">
            <string>Swift Code</string>
           </property>
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QLineEdit" name="lineEdit_11"/>
+         <widget class="QLineEdit" name="swift_code_edit">
+          <property name="placeholderText">
+           <string>  --- Swift Code (optional) --- </string>
+          </property>
+         </widget>
         </item>
         <item row="3" column="0">
-         <widget class="QLabel" name="label_17">
+         <widget class="QLabel" name="name_of_the_branch_label">
           <property name="text">
            <string>Name of the Branch</string>
           </property>
          </widget>
         </item>
         <item row="5" column="0" colspan="3">
-         <widget class="QGroupBox" name="groupBox_2">
+         <widget class="QGroupBox" name="other_code_group">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -651,28 +666,28 @@
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
-             <widget class="QRadioButton" name="radioButton_3">
+             <widget class="QRadioButton" name="other_code_cnaps">
               <property name="text">
                <string>CNAPS</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="radioButton_4">
+             <widget class="QRadioButton" name="other_code_skn_code">
               <property name="text">
                <string>SKN CODE</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="radioButton_5">
+             <widget class="QRadioButton" name="other_code_bsb_number">
               <property name="text">
                <string>BSB NUMBER</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="radioButton_6">
+             <widget class="QRadioButton" name="other_code_iban_code">
               <property name="text">
                <string>IBAN CODE</string>
               </property>
@@ -683,12 +698,33 @@
          </widget>
         </item>
         <item row="4" column="3">
-         <widget class="QLineEdit" name="lineEdit_12"/>
+         <widget class="QLineEdit" name="country_of_the_bank_receiving_the_payment_edit">
+          <property name="placeholderText">
+           <string>  --- Country of the Bank Receiving the Payment ---</string>
+          </property>
+         </widget>
         </item>
         <item row="5" column="3">
-         <widget class="QLineEdit" name="lineEdit_13"/>
+         <widget class="QLineEdit" name="other_code_edit">
+          <property name="placeholderText">
+           <string>  --- Other Code (optional) ---</string>
+          </property>
+         </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </widget>
@@ -699,7 +735,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>794</width>
+     <width>793</width>
      <height>22</height>
     </rect>
    </property>

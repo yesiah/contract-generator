@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(794, 680)
+        MainWindow.resize(793, 680)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.pushButton = QPushButton(self.centralwidget)
@@ -38,149 +38,149 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 769, 732))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 769, 765))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.lineEdit_3 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.party_b_representative_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.party_b_representative_edit.setObjectName(u"party_b_representative_edit")
 
-        self.gridLayout_3.addWidget(self.lineEdit_3, 7, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.party_b_representative_edit, 7, 1, 1, 1)
 
-        self.label_9 = QLabel(self.scrollAreaWidgetContents)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.party_b_registered_address_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_b_registered_address_label.setObjectName(u"party_b_registered_address_label")
+        self.party_b_registered_address_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_9, 8, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.party_b_registered_address_label, 8, 0, 1, 1)
 
-        self.lineEdit = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.party_b_name_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.party_b_name_edit.setObjectName(u"party_b_name_edit")
 
-        self.gridLayout_3.addWidget(self.lineEdit, 6, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.party_b_name_edit, 6, 1, 1, 1)
 
         self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_3.addItem(self.verticalSpacer_4, 12, 0, 1, 1)
 
-        self.dateEdit = QDateEdit(self.scrollAreaWidgetContents)
-        self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
-        self.dateEdit.setCalendarPopup(True)
+        self.start_date_selector = QDateEdit(self.scrollAreaWidgetContents)
+        self.start_date_selector.setObjectName(u"start_date_selector")
+        self.start_date_selector.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
+        self.start_date_selector.setCalendarPopup(True)
 
-        self.gridLayout_3.addWidget(self.dateEdit, 10, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.start_date_selector, 10, 1, 1, 1)
 
-        self.comboBox_2 = QComboBox(self.scrollAreaWidgetContents)
-        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.lang_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.lang_selector.setObjectName(u"lang_selector")
 
-        self.gridLayout_3.addWidget(self.comboBox_2, 0, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.lang_selector, 0, 1, 1, 1)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_3.addItem(self.verticalSpacer_2, 5, 0, 1, 1)
 
-        self.dateEdit_3 = QDateEdit(self.scrollAreaWidgetContents)
-        self.dateEdit_3.setObjectName(u"dateEdit_3")
-        self.dateEdit_3.setCalendarPopup(True)
+        self.signature_date_selector = QDateEdit(self.scrollAreaWidgetContents)
+        self.signature_date_selector.setObjectName(u"signature_date_selector")
+        self.signature_date_selector.setCalendarPopup(True)
 
-        self.gridLayout_3.addWidget(self.dateEdit_3, 13, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.signature_date_selector, 13, 1, 1, 1)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_3.addItem(self.horizontalSpacer_2, 0, 2, 1, 1)
 
-        self.label_8 = QLabel(self.scrollAreaWidgetContents)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.party_b_representative_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_b_representative_label.setObjectName(u"party_b_representative_label")
+        self.party_b_representative_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_8, 7, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.party_b_representative_label, 7, 0, 1, 1)
 
-        self.dateEdit_2 = QDateEdit(self.scrollAreaWidgetContents)
-        self.dateEdit_2.setObjectName(u"dateEdit_2")
-        self.dateEdit_2.setCalendarPopup(True)
+        self.end_date_selector = QDateEdit(self.scrollAreaWidgetContents)
+        self.end_date_selector.setObjectName(u"end_date_selector")
+        self.end_date_selector.setCalendarPopup(True)
 
-        self.gridLayout_3.addWidget(self.dateEdit_2, 11, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.end_date_selector, 11, 1, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.party_a_name_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_a_name_label.setObjectName(u"party_a_name_label")
+        self.party_a_name_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label, 2, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.party_a_name_label, 2, 0, 1, 1)
 
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.party_b_name_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_b_name_label.setObjectName(u"party_b_name_label")
+        self.party_b_name_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_2, 6, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.party_b_name_label, 6, 0, 1, 1)
 
-        self.comboBox = QComboBox(self.scrollAreaWidgetContents)
-        self.comboBox.setObjectName(u"comboBox")
+        self.party_a_name_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.party_a_name_selector.setObjectName(u"party_a_name_selector")
 
-        self.gridLayout_3.addWidget(self.comboBox, 2, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.party_a_name_selector, 2, 1, 1, 1)
 
-        self.label_5 = QLabel(self.scrollAreaWidgetContents)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.end_date_label = QLabel(self.scrollAreaWidgetContents)
+        self.end_date_label.setObjectName(u"end_date_label")
+        self.end_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_5, 11, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.end_date_label, 11, 0, 1, 1)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_3.addItem(self.verticalSpacer, 1, 0, 1, 1)
 
-        self.label_6 = QLabel(self.scrollAreaWidgetContents)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.party_a_representative_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_a_representative_label.setObjectName(u"party_a_representative_label")
+        self.party_a_representative_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_6, 3, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.party_a_representative_label, 3, 0, 1, 1)
 
-        self.label_10 = QLabel(self.scrollAreaWidgetContents)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.signature_date_label = QLabel(self.scrollAreaWidgetContents)
+        self.signature_date_label.setObjectName(u"signature_date_label")
+        self.signature_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_10, 13, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.signature_date_label, 13, 0, 1, 1)
 
-        self.comboBox_3 = QComboBox(self.scrollAreaWidgetContents)
-        self.comboBox_3.setObjectName(u"comboBox_3")
+        self.party_a_representative_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.party_a_representative_selector.setObjectName(u"party_a_representative_selector")
 
-        self.gridLayout_3.addWidget(self.comboBox_3, 3, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.party_a_representative_selector, 3, 1, 1, 1)
 
-        self.label_7 = QLabel(self.scrollAreaWidgetContents)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.party_a_registered_address_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_a_registered_address_label.setObjectName(u"party_a_registered_address_label")
+        self.party_a_registered_address_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_7, 4, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.party_a_registered_address_label, 4, 0, 1, 1)
 
-        self.label_3 = QLabel(self.scrollAreaWidgetContents)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setLayoutDirection(Qt.LeftToRight)
-        self.label_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lang_label = QLabel(self.scrollAreaWidgetContents)
+        self.lang_label.setObjectName(u"lang_label")
+        self.lang_label.setLayoutDirection(Qt.LeftToRight)
+        self.lang_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_3, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.lang_label, 0, 0, 1, 1)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_3.addItem(self.verticalSpacer_3, 9, 0, 1, 1)
 
-        self.label_4 = QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.start_date_label = QLabel(self.scrollAreaWidgetContents)
+        self.start_date_label.setObjectName(u"start_date_label")
+        self.start_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.label_4, 10, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.start_date_label, 10, 0, 1, 1)
 
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_3.addItem(self.horizontalSpacer_4, 0, 3, 1, 1)
 
-        self.lineEdit_2 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.party_a_registered_address_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.party_a_registered_address_edit.setObjectName(u"party_a_registered_address_edit")
 
-        self.gridLayout_3.addWidget(self.lineEdit_2, 4, 1, 1, 3)
+        self.gridLayout_3.addWidget(self.party_a_registered_address_edit, 4, 1, 1, 3)
 
-        self.lineEdit_4 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
+        self.party_b_registered_address_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.party_b_registered_address_edit.setObjectName(u"party_b_registered_address_edit")
 
-        self.gridLayout_3.addWidget(self.lineEdit_4, 8, 1, 1, 3)
+        self.gridLayout_3.addWidget(self.party_b_registered_address_edit, 8, 1, 1, 3)
 
         self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -199,16 +199,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.comboBox_5 = QComboBox(self.scrollAreaWidgetContents)
-        self.comboBox_5.setObjectName(u"comboBox_5")
+        self.currency_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.currency_selector.setObjectName(u"currency_selector")
 
-        self.gridLayout_2.addWidget(self.comboBox_5, 1, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.currency_selector, 1, 2, 1, 1)
 
-        self.label_12 = QLabel(self.scrollAreaWidgetContents)
-        self.label_12.setObjectName(u"label_12")
-        self.label_12.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.currency_label = QLabel(self.scrollAreaWidgetContents)
+        self.currency_label.setObjectName(u"currency_label")
+        self.currency_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_2.addWidget(self.label_12, 1, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.currency_label, 1, 1, 1, 1)
 
         self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -230,183 +230,183 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addItem(self.horizontalSpacer_7, 0, 6, 1, 1)
 
-        self.label_11 = QLabel(self.scrollAreaWidgetContents)
-        self.label_11.setObjectName(u"label_11")
+        self.payment_method_label = QLabel(self.scrollAreaWidgetContents)
+        self.payment_method_label.setObjectName(u"payment_method_label")
 
-        self.gridLayout_2.addWidget(self.label_11, 0, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.payment_method_label, 0, 1, 1, 1)
 
         self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_2.addItem(self.horizontalSpacer_9, 0, 8, 1, 1)
 
-        self.comboBox_4 = QComboBox(self.scrollAreaWidgetContents)
-        self.comboBox_4.setObjectName(u"comboBox_4")
+        self.payment_method_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.payment_method_selector.setObjectName(u"payment_method_selector")
 
-        self.gridLayout_2.addWidget(self.comboBox_4, 0, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.payment_method_selector, 0, 2, 1, 1)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_2.addItem(self.horizontalSpacer, 0, 3, 1, 1)
 
-        self.groupBox = QGroupBox(self.scrollAreaWidgetContents)
-        self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setMinimumSize(QSize(0, 50))
-        self.horizontalLayoutWidget_2 = QWidget(self.groupBox)
+        self.cross_boader_payment_group = QGroupBox(self.scrollAreaWidgetContents)
+        self.cross_boader_payment_group.setObjectName(u"cross_boader_payment_group")
+        self.cross_boader_payment_group.setMinimumSize(QSize(0, 50))
+        self.horizontalLayoutWidget_2 = QWidget(self.cross_boader_payment_group)
         self.horizontalLayoutWidget_2.setObjectName(u"horizontalLayoutWidget_2")
         self.horizontalLayoutWidget_2.setGeometry(QRect(10, 20, 131, 31))
         self.horizontalLayout = QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.radioButton = QRadioButton(self.horizontalLayoutWidget_2)
-        self.radioButton.setObjectName(u"radioButton")
+        self.cross_border_payment_yes = QRadioButton(self.horizontalLayoutWidget_2)
+        self.cross_border_payment_yes.setObjectName(u"cross_border_payment_yes")
 
-        self.horizontalLayout.addWidget(self.radioButton)
+        self.horizontalLayout.addWidget(self.cross_border_payment_yes)
 
-        self.radioButton_2 = QRadioButton(self.horizontalLayoutWidget_2)
-        self.radioButton_2.setObjectName(u"radioButton_2")
+        self.cross_border_payment_no = QRadioButton(self.horizontalLayoutWidget_2)
+        self.cross_border_payment_no.setObjectName(u"cross_border_payment_no")
 
-        self.horizontalLayout.addWidget(self.radioButton_2)
+        self.horizontalLayout.addWidget(self.cross_border_payment_no)
 
 
-        self.gridLayout_2.addWidget(self.groupBox, 1, 3, 1, 1)
+        self.gridLayout_2.addWidget(self.cross_boader_payment_group, 1, 3, 1, 1)
 
 
         self.verticalLayout.addLayout(self.gridLayout_2)
 
-        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer_6)
-
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.lineEdit_5 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_5.setObjectName(u"lineEdit_5")
+        self.bank_account_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.bank_account_edit.setObjectName(u"bank_account_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_5, 0, 1, 1, 3)
+        self.gridLayout.addWidget(self.bank_account_edit, 0, 1, 1, 3)
 
-        self.label_14 = QLabel(self.scrollAreaWidgetContents)
-        self.label_14.setObjectName(u"label_14")
+        self.account_name_label = QLabel(self.scrollAreaWidgetContents)
+        self.account_name_label.setObjectName(u"account_name_label")
 
-        self.gridLayout.addWidget(self.label_14, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.account_name_label, 1, 0, 1, 1)
 
-        self.lineEdit_8 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_8.setObjectName(u"lineEdit_8")
+        self.bank_code_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.bank_code_edit.setObjectName(u"bank_code_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_8, 2, 3, 1, 1)
+        self.gridLayout.addWidget(self.bank_code_edit, 2, 3, 1, 1)
 
-        self.lineEdit_7 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_7.setObjectName(u"lineEdit_7")
+        self.name_of_the_bank_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.name_of_the_bank_edit.setObjectName(u"name_of_the_bank_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_7, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.name_of_the_bank_edit, 2, 1, 1, 1)
 
-        self.lineEdit_6 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_6.setObjectName(u"lineEdit_6")
+        self.account_name_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.account_name_edit.setObjectName(u"account_name_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_6, 1, 1, 1, 3)
+        self.gridLayout.addWidget(self.account_name_edit, 1, 1, 1, 3)
 
-        self.label_18 = QLabel(self.scrollAreaWidgetContents)
-        self.label_18.setObjectName(u"label_18")
+        self.branch_code_label = QLabel(self.scrollAreaWidgetContents)
+        self.branch_code_label.setObjectName(u"branch_code_label")
 
-        self.gridLayout.addWidget(self.label_18, 3, 2, 1, 1)
+        self.gridLayout.addWidget(self.branch_code_label, 3, 2, 1, 1)
 
-        self.lineEdit_9 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_9.setObjectName(u"lineEdit_9")
+        self.name_of_the_branch_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.name_of_the_branch_edit.setObjectName(u"name_of_the_branch_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_9, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.name_of_the_branch_edit, 3, 1, 1, 1)
 
-        self.label_20 = QLabel(self.scrollAreaWidgetContents)
-        self.label_20.setObjectName(u"label_20")
+        self.country_of_the_bank_receiving_the_payment_label = QLabel(self.scrollAreaWidgetContents)
+        self.country_of_the_bank_receiving_the_payment_label.setObjectName(u"country_of_the_bank_receiving_the_payment_label")
 
-        self.gridLayout.addWidget(self.label_20, 4, 2, 1, 1)
+        self.gridLayout.addWidget(self.country_of_the_bank_receiving_the_payment_label, 4, 2, 1, 1)
 
-        self.label_13 = QLabel(self.scrollAreaWidgetContents)
-        self.label_13.setObjectName(u"label_13")
+        self.bank_account_label = QLabel(self.scrollAreaWidgetContents)
+        self.bank_account_label.setObjectName(u"bank_account_label")
 
-        self.gridLayout.addWidget(self.label_13, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.bank_account_label, 0, 0, 1, 1)
 
-        self.label_16 = QLabel(self.scrollAreaWidgetContents)
-        self.label_16.setObjectName(u"label_16")
+        self.bank_code_label = QLabel(self.scrollAreaWidgetContents)
+        self.bank_code_label.setObjectName(u"bank_code_label")
 
-        self.gridLayout.addWidget(self.label_16, 2, 2, 1, 1)
+        self.gridLayout.addWidget(self.bank_code_label, 2, 2, 1, 1)
 
-        self.label_15 = QLabel(self.scrollAreaWidgetContents)
-        self.label_15.setObjectName(u"label_15")
+        self.name_of_the_bank_label = QLabel(self.scrollAreaWidgetContents)
+        self.name_of_the_bank_label.setObjectName(u"name_of_the_bank_label")
 
-        self.gridLayout.addWidget(self.label_15, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.name_of_the_bank_label, 2, 0, 1, 1)
 
-        self.lineEdit_10 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_10.setObjectName(u"lineEdit_10")
+        self.branch_code_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.branch_code_edit.setObjectName(u"branch_code_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_10, 3, 3, 1, 1)
+        self.gridLayout.addWidget(self.branch_code_edit, 3, 3, 1, 1)
 
-        self.label_19 = QLabel(self.scrollAreaWidgetContents)
-        self.label_19.setObjectName(u"label_19")
+        self.swift_code_label = QLabel(self.scrollAreaWidgetContents)
+        self.swift_code_label.setObjectName(u"swift_code_label")
 
-        self.gridLayout.addWidget(self.label_19, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.swift_code_label, 4, 0, 1, 1)
 
-        self.lineEdit_11 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_11.setObjectName(u"lineEdit_11")
+        self.swift_code_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.swift_code_edit.setObjectName(u"swift_code_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_11, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.swift_code_edit, 4, 1, 1, 1)
 
-        self.label_17 = QLabel(self.scrollAreaWidgetContents)
-        self.label_17.setObjectName(u"label_17")
+        self.name_of_the_branch_label = QLabel(self.scrollAreaWidgetContents)
+        self.name_of_the_branch_label.setObjectName(u"name_of_the_branch_label")
 
-        self.gridLayout.addWidget(self.label_17, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.name_of_the_branch_label, 3, 0, 1, 1)
 
-        self.groupBox_2 = QGroupBox(self.scrollAreaWidgetContents)
-        self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setMinimumSize(QSize(0, 60))
+        self.other_code_group = QGroupBox(self.scrollAreaWidgetContents)
+        self.other_code_group.setObjectName(u"other_code_group")
+        self.other_code_group.setMinimumSize(QSize(0, 60))
         font = QFont()
         font.setPointSize(12)
-        self.groupBox_2.setFont(font)
-        self.horizontalLayoutWidget_3 = QWidget(self.groupBox_2)
+        self.other_code_group.setFont(font)
+        self.horizontalLayoutWidget_3 = QWidget(self.other_code_group)
         self.horizontalLayoutWidget_3.setObjectName(u"horizontalLayoutWidget_3")
         self.horizontalLayoutWidget_3.setGeometry(QRect(0, 20, 391, 41))
         self.horizontalLayout_3 = QHBoxLayout(self.horizontalLayoutWidget_3)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.radioButton_3 = QRadioButton(self.horizontalLayoutWidget_3)
-        self.radioButton_3.setObjectName(u"radioButton_3")
+        self.other_code_cnaps = QRadioButton(self.horizontalLayoutWidget_3)
+        self.other_code_cnaps.setObjectName(u"other_code_cnaps")
 
-        self.horizontalLayout_3.addWidget(self.radioButton_3)
+        self.horizontalLayout_3.addWidget(self.other_code_cnaps)
 
-        self.radioButton_4 = QRadioButton(self.horizontalLayoutWidget_3)
-        self.radioButton_4.setObjectName(u"radioButton_4")
+        self.other_code_skn_code = QRadioButton(self.horizontalLayoutWidget_3)
+        self.other_code_skn_code.setObjectName(u"other_code_skn_code")
 
-        self.horizontalLayout_3.addWidget(self.radioButton_4)
+        self.horizontalLayout_3.addWidget(self.other_code_skn_code)
 
-        self.radioButton_5 = QRadioButton(self.horizontalLayoutWidget_3)
-        self.radioButton_5.setObjectName(u"radioButton_5")
+        self.other_code_bsb_number = QRadioButton(self.horizontalLayoutWidget_3)
+        self.other_code_bsb_number.setObjectName(u"other_code_bsb_number")
 
-        self.horizontalLayout_3.addWidget(self.radioButton_5)
+        self.horizontalLayout_3.addWidget(self.other_code_bsb_number)
 
-        self.radioButton_6 = QRadioButton(self.horizontalLayoutWidget_3)
-        self.radioButton_6.setObjectName(u"radioButton_6")
+        self.other_code_iban_code = QRadioButton(self.horizontalLayoutWidget_3)
+        self.other_code_iban_code.setObjectName(u"other_code_iban_code")
 
-        self.horizontalLayout_3.addWidget(self.radioButton_6)
+        self.horizontalLayout_3.addWidget(self.other_code_iban_code)
 
 
-        self.gridLayout.addWidget(self.groupBox_2, 5, 0, 1, 3)
+        self.gridLayout.addWidget(self.other_code_group, 5, 0, 1, 3)
 
-        self.lineEdit_12 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_12.setObjectName(u"lineEdit_12")
+        self.country_of_the_bank_receiving_the_payment_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.country_of_the_bank_receiving_the_payment_edit.setObjectName(u"country_of_the_bank_receiving_the_payment_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_12, 4, 3, 1, 1)
+        self.gridLayout.addWidget(self.country_of_the_bank_receiving_the_payment_edit, 4, 3, 1, 1)
 
-        self.lineEdit_13 = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_13.setObjectName(u"lineEdit_13")
+        self.other_code_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.other_code_edit.setObjectName(u"other_code_edit")
 
-        self.gridLayout.addWidget(self.lineEdit_13, 5, 3, 1, 1)
+        self.gridLayout.addWidget(self.other_code_edit, 5, 3, 1, 1)
 
 
         self.verticalLayout.addLayout(self.gridLayout)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_6)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 794, 22))
+        self.menubar.setGeometry(QRect(0, 0, 793, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -420,42 +420,51 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Contract Generator", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Execute", None))
-        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Representative ---", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Party B Registered Address", None))
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Name ---", None))
-        self.comboBox_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Select a language ---", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Party B Representative", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Party A Name", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Party B Name", None))
-        self.comboBox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Name ---", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"End Date", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Party A Representative", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Signature Date", None))
-        self.comboBox_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Representative ---", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Party A Registered Address", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Language", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Start Date", None))
-        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party A Registered Address ---", None))
-        self.lineEdit_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Registered Address ---", None))
-        self.comboBox_5.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Currency ---", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Currency", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Payment Method", None))
-        self.comboBox_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Payment Method ---", None))
-        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Cross Border Payment", None))
-        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Yes", None))
-        self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"No", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Account Name", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Branch Code", None))
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Country of the Bank<br/>Receiving the Payment</p></body></html>", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Bank Account", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Bank Code", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Name of the Bank", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Swift Code", None))
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Name of the Branch", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Other Code", None))
-        self.radioButton_3.setText(QCoreApplication.translate("MainWindow", u"CNAPS", None))
-        self.radioButton_4.setText(QCoreApplication.translate("MainWindow", u"SKN CODE", None))
-        self.radioButton_5.setText(QCoreApplication.translate("MainWindow", u"BSB NUMBER", None))
-        self.radioButton_6.setText(QCoreApplication.translate("MainWindow", u"IBAN CODE", None))
+        self.party_b_representative_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Representative ---", None))
+        self.party_b_registered_address_label.setText(QCoreApplication.translate("MainWindow", u"Party B Registered Address", None))
+        self.party_b_name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Name ---", None))
+        self.lang_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Select a language ---", None))
+        self.party_b_representative_label.setText(QCoreApplication.translate("MainWindow", u"Party B Representative", None))
+        self.party_a_name_label.setText(QCoreApplication.translate("MainWindow", u"Party A Name", None))
+        self.party_b_name_label.setText(QCoreApplication.translate("MainWindow", u"Party B Name", None))
+        self.party_a_name_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Name ---", None))
+        self.end_date_label.setText(QCoreApplication.translate("MainWindow", u"End Date", None))
+        self.party_a_representative_label.setText(QCoreApplication.translate("MainWindow", u"Party A Representative", None))
+        self.signature_date_label.setText(QCoreApplication.translate("MainWindow", u"Signature Date", None))
+        self.party_a_representative_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Representative ---", None))
+        self.party_a_registered_address_label.setText(QCoreApplication.translate("MainWindow", u"Party A Registered Address", None))
+        self.lang_label.setText(QCoreApplication.translate("MainWindow", u"Language", None))
+        self.start_date_label.setText(QCoreApplication.translate("MainWindow", u"Start Date", None))
+        self.party_a_registered_address_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party A Registered Address ---", None))
+        self.party_b_registered_address_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Registered Address ---", None))
+        self.currency_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Currency ---", None))
+        self.currency_label.setText(QCoreApplication.translate("MainWindow", u"Currency", None))
+        self.payment_method_label.setText(QCoreApplication.translate("MainWindow", u"Payment Method", None))
+        self.payment_method_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Payment Method ---", None))
+        self.cross_boader_payment_group.setTitle(QCoreApplication.translate("MainWindow", u"Cross Border Payment", None))
+        self.cross_border_payment_yes.setText(QCoreApplication.translate("MainWindow", u"Yes", None))
+        self.cross_border_payment_no.setText(QCoreApplication.translate("MainWindow", u"No", None))
+        self.bank_account_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Bank Account ---", None))
+        self.account_name_label.setText(QCoreApplication.translate("MainWindow", u"Account Name", None))
+        self.bank_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Bank Code ---", None))
+        self.name_of_the_bank_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Name of the Bank ---", None))
+        self.account_name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Account Name ---", None))
+        self.branch_code_label.setText(QCoreApplication.translate("MainWindow", u"Branch Code", None))
+        self.name_of_the_branch_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Name of the Branch ---", None))
+        self.country_of_the_bank_receiving_the_payment_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Country of the Bank<br/>Receiving the Payment</p></body></html>", None))
+        self.bank_account_label.setText(QCoreApplication.translate("MainWindow", u"Bank Account", None))
+        self.bank_code_label.setText(QCoreApplication.translate("MainWindow", u"Bank Code", None))
+        self.name_of_the_bank_label.setText(QCoreApplication.translate("MainWindow", u"Name of the Bank", None))
+        self.branch_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Branch Code ---", None))
+        self.swift_code_label.setText(QCoreApplication.translate("MainWindow", u"Swift Code", None))
+        self.swift_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Swift Code (optional) --- ", None))
+        self.name_of_the_branch_label.setText(QCoreApplication.translate("MainWindow", u"Name of the Branch", None))
+        self.other_code_group.setTitle(QCoreApplication.translate("MainWindow", u"Other Code", None))
+        self.other_code_cnaps.setText(QCoreApplication.translate("MainWindow", u"CNAPS", None))
+        self.other_code_skn_code.setText(QCoreApplication.translate("MainWindow", u"SKN CODE", None))
+        self.other_code_bsb_number.setText(QCoreApplication.translate("MainWindow", u"BSB NUMBER", None))
+        self.other_code_iban_code.setText(QCoreApplication.translate("MainWindow", u"IBAN CODE", None))
+        self.country_of_the_bank_receiving_the_payment_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Country of the Bank Receiving the Payment ---", None))
+        self.other_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Other Code (optional) ---", None))
     # retranslateUi
 
