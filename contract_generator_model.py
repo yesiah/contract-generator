@@ -468,3 +468,8 @@ class Ui_MainWindow(object):
         self.other_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Other Code (optional) ---", None))
     # retranslateUi
 
+    def initialize(self):
+        today = QDate.currentDate()
+        self.start_date_selector.setDate(today)
+        self.end_date_selector.setDate(today)
+        self.signature_date_selector.setDate(today)
