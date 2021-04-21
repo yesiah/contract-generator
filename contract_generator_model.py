@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(793, 680)
+        MainWindow.resize(792, 682)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.pushButton = QPushButton(self.centralwidget)
@@ -38,153 +38,173 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 769, 765))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 769, 806))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.party_b_representative_edit = QLineEdit(self.scrollAreaWidgetContents)
-        self.party_b_representative_edit.setObjectName(u"party_b_representative_edit")
-
-        self.gridLayout_3.addWidget(self.party_b_representative_edit, 7, 1, 1, 1)
-
-        self.party_b_registered_address_label = QLabel(self.scrollAreaWidgetContents)
-        self.party_b_registered_address_label.setObjectName(u"party_b_registered_address_label")
-        self.party_b_registered_address_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_3.addWidget(self.party_b_registered_address_label, 8, 0, 1, 1)
-
-        self.party_b_name_edit = QLineEdit(self.scrollAreaWidgetContents)
-        self.party_b_name_edit.setObjectName(u"party_b_name_edit")
-
-        self.gridLayout_3.addWidget(self.party_b_name_edit, 6, 1, 1, 1)
-
         self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_3.addItem(self.verticalSpacer_4, 12, 0, 1, 1)
+        self.gridLayout_3.addItem(self.verticalSpacer_4, 14, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_3.addItem(self.verticalSpacer, 3, 0, 1, 1)
+
+        self.party_a_name_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.party_a_name_selector.setObjectName(u"party_a_name_selector")
+
+        self.gridLayout_3.addWidget(self.party_a_name_selector, 4, 1, 1, 1)
+
+        self.start_date_label = QLabel(self.scrollAreaWidgetContents)
+        self.start_date_label.setObjectName(u"start_date_label")
+        self.start_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_3.addWidget(self.start_date_label, 12, 0, 1, 1)
+
+        self.party_b_representative_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_b_representative_label.setObjectName(u"party_b_representative_label")
+        self.party_b_representative_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_3.addWidget(self.party_b_representative_label, 9, 0, 1, 1)
+
+        self.signature_date_label = QLabel(self.scrollAreaWidgetContents)
+        self.signature_date_label.setObjectName(u"signature_date_label")
+        self.signature_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_3.addWidget(self.signature_date_label, 15, 0, 1, 1)
+
+        self.party_a_representative_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_a_representative_label.setObjectName(u"party_a_representative_label")
+        self.party_a_representative_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_3.addWidget(self.party_a_representative_label, 5, 0, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_3.addItem(self.verticalSpacer_3, 11, 0, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_3.addItem(self.horizontalSpacer_4, 2, 3, 1, 1)
+
+        self.party_a_representative_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.party_a_representative_selector.setObjectName(u"party_a_representative_selector")
+
+        self.gridLayout_3.addWidget(self.party_a_representative_selector, 5, 1, 1, 1)
+
+        self.contract_template_label = QLabel(self.scrollAreaWidgetContents)
+        self.contract_template_label.setObjectName(u"contract_template_label")
+        self.contract_template_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_3.addWidget(self.contract_template_label, 0, 0, 1, 1)
+
+        self.party_b_registered_address_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.party_b_registered_address_edit.setObjectName(u"party_b_registered_address_edit")
+
+        self.gridLayout_3.addWidget(self.party_b_registered_address_edit, 10, 1, 1, 3)
+
+        self.party_a_registered_address_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_a_registered_address_label.setObjectName(u"party_a_registered_address_label")
+        self.party_a_registered_address_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_3.addWidget(self.party_a_registered_address_label, 6, 0, 1, 1)
+
+        self.party_a_registered_address_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.party_a_registered_address_edit.setObjectName(u"party_a_registered_address_edit")
+
+        self.gridLayout_3.addWidget(self.party_a_registered_address_edit, 6, 1, 1, 3)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_3.addItem(self.verticalSpacer_2, 7, 0, 1, 1)
 
         self.start_date_selector = QDateEdit(self.scrollAreaWidgetContents)
         self.start_date_selector.setObjectName(u"start_date_selector")
         self.start_date_selector.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
         self.start_date_selector.setCalendarPopup(True)
 
-        self.gridLayout_3.addWidget(self.start_date_selector, 10, 1, 1, 1)
-
-        self.lang_selector = QComboBox(self.scrollAreaWidgetContents)
-        self.lang_selector.setObjectName(u"lang_selector")
-
-        self.gridLayout_3.addWidget(self.lang_selector, 0, 1, 1, 1)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_3.addItem(self.verticalSpacer_2, 5, 0, 1, 1)
-
-        self.signature_date_selector = QDateEdit(self.scrollAreaWidgetContents)
-        self.signature_date_selector.setObjectName(u"signature_date_selector")
-        self.signature_date_selector.setCalendarPopup(True)
-
-        self.gridLayout_3.addWidget(self.signature_date_selector, 13, 1, 1, 1)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_2, 0, 2, 1, 1)
-
-        self.party_b_representative_label = QLabel(self.scrollAreaWidgetContents)
-        self.party_b_representative_label.setObjectName(u"party_b_representative_label")
-        self.party_b_representative_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_3.addWidget(self.party_b_representative_label, 7, 0, 1, 1)
-
-        self.end_date_selector = QDateEdit(self.scrollAreaWidgetContents)
-        self.end_date_selector.setObjectName(u"end_date_selector")
-        self.end_date_selector.setCalendarPopup(True)
-
-        self.gridLayout_3.addWidget(self.end_date_selector, 11, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.start_date_selector, 12, 1, 1, 1)
 
         self.party_a_name_label = QLabel(self.scrollAreaWidgetContents)
         self.party_a_name_label.setObjectName(u"party_a_name_label")
         self.party_a_name_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.party_a_name_label, 2, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.party_a_name_label, 4, 0, 1, 1)
+
+        self.lang_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.lang_selector.setObjectName(u"lang_selector")
+
+        self.gridLayout_3.addWidget(self.lang_selector, 2, 1, 1, 1)
+
+        self.party_b_registered_address_label = QLabel(self.scrollAreaWidgetContents)
+        self.party_b_registered_address_label.setObjectName(u"party_b_registered_address_label")
+        self.party_b_registered_address_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_3.addWidget(self.party_b_registered_address_label, 10, 0, 1, 1)
+
+        self.signature_date_selector = QDateEdit(self.scrollAreaWidgetContents)
+        self.signature_date_selector.setObjectName(u"signature_date_selector")
+        self.signature_date_selector.setCalendarPopup(True)
+
+        self.gridLayout_3.addWidget(self.signature_date_selector, 15, 1, 1, 1)
 
         self.party_b_name_label = QLabel(self.scrollAreaWidgetContents)
         self.party_b_name_label.setObjectName(u"party_b_name_label")
         self.party_b_name_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.party_b_name_label, 6, 0, 1, 1)
-
-        self.party_a_name_selector = QComboBox(self.scrollAreaWidgetContents)
-        self.party_a_name_selector.setObjectName(u"party_a_name_selector")
-
-        self.gridLayout_3.addWidget(self.party_a_name_selector, 2, 1, 1, 1)
-
-        self.end_date_label = QLabel(self.scrollAreaWidgetContents)
-        self.end_date_label.setObjectName(u"end_date_label")
-        self.end_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_3.addWidget(self.end_date_label, 11, 0, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_3.addItem(self.verticalSpacer, 1, 0, 1, 1)
-
-        self.party_a_representative_label = QLabel(self.scrollAreaWidgetContents)
-        self.party_a_representative_label.setObjectName(u"party_a_representative_label")
-        self.party_a_representative_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_3.addWidget(self.party_a_representative_label, 3, 0, 1, 1)
-
-        self.signature_date_label = QLabel(self.scrollAreaWidgetContents)
-        self.signature_date_label.setObjectName(u"signature_date_label")
-        self.signature_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_3.addWidget(self.signature_date_label, 13, 0, 1, 1)
-
-        self.party_a_representative_selector = QComboBox(self.scrollAreaWidgetContents)
-        self.party_a_representative_selector.setObjectName(u"party_a_representative_selector")
-
-        self.gridLayout_3.addWidget(self.party_a_representative_selector, 3, 1, 1, 1)
-
-        self.party_a_registered_address_label = QLabel(self.scrollAreaWidgetContents)
-        self.party_a_registered_address_label.setObjectName(u"party_a_registered_address_label")
-        self.party_a_registered_address_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_3.addWidget(self.party_a_registered_address_label, 4, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.party_b_name_label, 8, 0, 1, 1)
 
         self.lang_label = QLabel(self.scrollAreaWidgetContents)
         self.lang_label.setObjectName(u"lang_label")
         self.lang_label.setLayoutDirection(Qt.LeftToRight)
         self.lang_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.lang_label, 0, 0, 1, 1)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_3.addItem(self.verticalSpacer_3, 9, 0, 1, 1)
-
-        self.start_date_label = QLabel(self.scrollAreaWidgetContents)
-        self.start_date_label.setObjectName(u"start_date_label")
-        self.start_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_3.addWidget(self.start_date_label, 10, 0, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_4, 0, 3, 1, 1)
-
-        self.party_a_registered_address_edit = QLineEdit(self.scrollAreaWidgetContents)
-        self.party_a_registered_address_edit.setObjectName(u"party_a_registered_address_edit")
-
-        self.gridLayout_3.addWidget(self.party_a_registered_address_edit, 4, 1, 1, 3)
-
-        self.party_b_registered_address_edit = QLineEdit(self.scrollAreaWidgetContents)
-        self.party_b_registered_address_edit.setObjectName(u"party_b_registered_address_edit")
-
-        self.gridLayout_3.addWidget(self.party_b_registered_address_edit, 8, 1, 1, 3)
+        self.gridLayout_3.addWidget(self.lang_label, 2, 0, 1, 1)
 
         self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_3.addItem(self.verticalSpacer_9, 1, 1, 1, 1)
+        self.gridLayout_3.addItem(self.verticalSpacer_9, 3, 1, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_3.addItem(self.horizontalSpacer_2, 2, 2, 1, 1)
+
+        self.party_b_representative_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.party_b_representative_edit.setObjectName(u"party_b_representative_edit")
+
+        self.gridLayout_3.addWidget(self.party_b_representative_edit, 9, 1, 1, 1)
+
+        self.end_date_selector = QDateEdit(self.scrollAreaWidgetContents)
+        self.end_date_selector.setObjectName(u"end_date_selector")
+        self.end_date_selector.setCalendarPopup(True)
+
+        self.gridLayout_3.addWidget(self.end_date_selector, 13, 1, 1, 1)
+
+        self.end_date_label = QLabel(self.scrollAreaWidgetContents)
+        self.end_date_label.setObjectName(u"end_date_label")
+        self.end_date_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_3.addWidget(self.end_date_label, 13, 0, 1, 1)
+
+        self.party_b_name_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.party_b_name_edit.setObjectName(u"party_b_name_edit")
+
+        self.gridLayout_3.addWidget(self.party_b_name_edit, 8, 1, 1, 1)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_3.addItem(self.verticalSpacer_8, 1, 0, 1, 1)
+
+        self.contract_template_select_button = QToolButton(self.scrollAreaWidgetContents)
+        self.contract_template_select_button.setObjectName(u"contract_template_select_button")
+
+        self.gridLayout_3.addWidget(self.contract_template_select_button, 0, 3, 1, 1)
+
+        self.ocntract_template_edit = QLineEdit(self.scrollAreaWidgetContents)
+        self.ocntract_template_edit.setObjectName(u"ocntract_template_edit")
+
+        self.gridLayout_3.addWidget(self.ocntract_template_edit, 0, 1, 1, 2)
 
 
         self.verticalLayout.addLayout(self.gridLayout_3)
@@ -406,7 +426,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 793, 22))
+        self.menubar.setGeometry(QRect(0, 0, 792, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -420,23 +440,26 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Contract Generator", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Execute", None))
-        self.party_b_representative_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Representative ---", None))
-        self.party_b_registered_address_label.setText(QCoreApplication.translate("MainWindow", u"Party B Registered Address", None))
-        self.party_b_name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Name ---", None))
-        self.lang_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Select a language ---", None))
-        self.party_b_representative_label.setText(QCoreApplication.translate("MainWindow", u"Party B Representative", None))
-        self.party_a_name_label.setText(QCoreApplication.translate("MainWindow", u"Party A Name", None))
-        self.party_b_name_label.setText(QCoreApplication.translate("MainWindow", u"Party B Name", None))
         self.party_a_name_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Name ---", None))
-        self.end_date_label.setText(QCoreApplication.translate("MainWindow", u"End Date", None))
-        self.party_a_representative_label.setText(QCoreApplication.translate("MainWindow", u"Party A Representative", None))
-        self.signature_date_label.setText(QCoreApplication.translate("MainWindow", u"Signature Date", None))
-        self.party_a_representative_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Representative ---", None))
-        self.party_a_registered_address_label.setText(QCoreApplication.translate("MainWindow", u"Party A Registered Address", None))
-        self.lang_label.setText(QCoreApplication.translate("MainWindow", u"Language", None))
         self.start_date_label.setText(QCoreApplication.translate("MainWindow", u"Start Date", None))
-        self.party_a_registered_address_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party A Registered Address ---", None))
+        self.party_b_representative_label.setText(QCoreApplication.translate("MainWindow", u"Party B Representative", None))
+        self.signature_date_label.setText(QCoreApplication.translate("MainWindow", u"Signature Date", None))
+        self.party_a_representative_label.setText(QCoreApplication.translate("MainWindow", u"Party A Representative", None))
+        self.party_a_representative_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Party A Representative ---", None))
+        self.contract_template_label.setText(QCoreApplication.translate("MainWindow", u"Contract Template", None))
         self.party_b_registered_address_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Registered Address ---", None))
+        self.party_a_registered_address_label.setText(QCoreApplication.translate("MainWindow", u"Party A Registered Address", None))
+        self.party_a_registered_address_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party A Registered Address ---", None))
+        self.party_a_name_label.setText(QCoreApplication.translate("MainWindow", u"Party A Name", None))
+        self.lang_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Select a Language ---", None))
+        self.party_b_registered_address_label.setText(QCoreApplication.translate("MainWindow", u"Party B Registered Address", None))
+        self.party_b_name_label.setText(QCoreApplication.translate("MainWindow", u"Party B Name", None))
+        self.lang_label.setText(QCoreApplication.translate("MainWindow", u"Language", None))
+        self.party_b_representative_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Representative ---", None))
+        self.end_date_label.setText(QCoreApplication.translate("MainWindow", u"End Date", None))
+        self.party_b_name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Name ---", None))
+        self.contract_template_select_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
+        self.ocntract_template_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Select a Contract Template ---", None))
         self.currency_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Currency ---", None))
         self.currency_label.setText(QCoreApplication.translate("MainWindow", u"Currency", None))
         self.payment_method_label.setText(QCoreApplication.translate("MainWindow", u"Payment Method", None))
@@ -468,8 +491,3 @@ class Ui_MainWindow(object):
         self.other_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Other Code (optional) ---", None))
     # retranslateUi
 
-    def initialize(self):
-        today = QDate.currentDate()
-        self.start_date_selector.setDate(today)
-        self.end_date_selector.setDate(today)
-        self.signature_date_selector.setDate(today)
