@@ -1,6 +1,4 @@
 .DS_Store
-*.rtf
-contract-templates/
 *.ttf
 
 # Byte-compiled / optimized / DLL files

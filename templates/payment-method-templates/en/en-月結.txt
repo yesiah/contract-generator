@@ -1,0 +1,23 @@
+enenenenenenenenenenenenenenenenenenenenenenenenenenenenenen
+月月結月結月結月結月結月結月結月結月結月結月結月結月結月結月結月結月結結
+
+1. 報帳及付款方式
+貨幣
+{currency}
+
+2. 賬戶資訊
+
+{bank_account}
+
+{account_name}
+
+{name_of_the_bank}                                      {bank_code}
+
+{name_of_the_branch}                                      {branch_code}
+
+{swift_code}                                      {country_of_the_bank_receiving_the_payment}
+
+{other_code}
+
+月月結月結月結月結月結月結月結月結月結月結月結月結月結月結月結月結月結結
+enenenenenenenenenenenenenenenenenenenenenenenenenenenenenen
