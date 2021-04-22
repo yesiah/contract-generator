@@ -10,9 +10,12 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.initialize()
+        self.init()
+
+    def init(self):
+        self.init_date_controls()
     
-    def initialize(self):
+    def init_date_controls(self):
         today = QDate.currentDate()
         self.ui.start_date_selector.setDate(today)
         self.ui.end_date_selector.setDate(today)
