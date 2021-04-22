@@ -480,6 +480,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+        self.lang_selector.currentTextChanged.connect(MainWindow.on_language_selector_changed)
 
         self.lang_selector.setCurrentIndex(-1)
 

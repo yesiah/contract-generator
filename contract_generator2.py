@@ -20,6 +20,10 @@ class MainWindow(QMainWindow):
         self.ui.start_date_selector.setDate(today)
         self.ui.end_date_selector.setDate(today)
         self.ui.signature_date_selector.setDate(today)
+    
+    def on_language_selector_changed(self):
+        print(self.ui.lang_selector.currentText())
+        # Load template
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

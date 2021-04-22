@@ -940,8 +940,25 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>lang_selector</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_language_selector_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>405</x>
+     <y>67</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>512</x>
+     <y>-14</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
-  <slot>popupFileSelectionDialog()</slot>
+  <slot>on_language_selector_changed()</slot>
  </slots>
 </ui>
