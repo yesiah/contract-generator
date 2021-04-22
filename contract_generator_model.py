@@ -183,6 +183,10 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.lang_label, 2, 0, 1, 1)
 
         self.lang_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.lang_selector.addItem("")
+        self.lang_selector.addItem("")
+        self.lang_selector.addItem("")
+        self.lang_selector.addItem("")
         self.lang_selector.setObjectName(u"lang_selector")
 
         self.gridLayout_3.addWidget(self.lang_selector, 2, 1, 1, 1)
@@ -429,6 +433,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.lang_selector.setCurrentIndex(-1)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
@@ -452,6 +459,11 @@ class Ui_MainWindow(object):
         self.party_b_registered_address_label.setText(QCoreApplication.translate("MainWindow", u"Party B Registered Address", None))
         self.party_b_registered_address_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Registered Address ---", None))
         self.lang_label.setText(QCoreApplication.translate("MainWindow", u"Language", None))
+        self.lang_selector.setItemText(0, QCoreApplication.translate("MainWindow", u"\u7e41\u9ad4\u4e2d\u6587", None))
+        self.lang_selector.setItemText(1, QCoreApplication.translate("MainWindow", u"English", None))
+        self.lang_selector.setItemText(2, QCoreApplication.translate("MainWindow", u"\u65e5\u672c\u8a9e", None))
+        self.lang_selector.setItemText(3, QCoreApplication.translate("MainWindow", u"\ud55c\uad6d\uc5b4", None))
+
         self.lang_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Select a Language ---", None))
         self.contract_template_label.setText(QCoreApplication.translate("MainWindow", u"Contract Template", None))
         self.currency_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Currency ---", None))

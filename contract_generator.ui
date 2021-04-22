@@ -328,9 +328,32 @@
         </item>
         <item row="2" column="1">
          <widget class="QComboBox" name="lang_selector">
+          <property name="currentIndex">
+           <number>-1</number>
+          </property>
           <property name="placeholderText">
            <string>--- Select a Language ---</string>
           </property>
+          <item>
+           <property name="text">
+            <string>繁體中文</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>English</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>日本語</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>한국어</string>
+           </property>
+          </item>
          </widget>
         </item>
         <item row="4" column="0">
