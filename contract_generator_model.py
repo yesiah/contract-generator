@@ -482,6 +482,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.lang_selector.currentTextChanged.connect(MainWindow.on_language_selector_changed)
         self.contract_template_selector.currentTextChanged.connect(MainWindow.on_contract_template_selector_changed)
+        self.payment_method_selector.currentTextChanged.connect(MainWindow.on_payment_method_selector_changed)
 
         self.lang_selector.setCurrentIndex(-1)
 

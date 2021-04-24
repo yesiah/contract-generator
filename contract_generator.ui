@@ -973,9 +973,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>payment_method_selector</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_payment_method_selector_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>292</x>
+     <y>523</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>733</x>
+     <y>24</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_language_selector_changed()</slot>
   <slot>on_contract_template_selector_changed()</slot>
+  <slot>on_payment_method_selector_changed()</slot>
  </slots>
 </ui>

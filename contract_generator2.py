@@ -31,7 +31,7 @@ def enable_controls(control_list):
 """
 Step1: Select language
 Step2: Select contract template
-Step3: Select payment method
+(Step3: Select payment method)
 Step4: Fill in the table
 Step5: Execute
 """
@@ -73,6 +73,9 @@ class MainWindow(QMainWindow):
         template_path = os.path.join(get_template_path(self.ui.lang_selector.currentText()), self.ui.contract_template_selector.currentText() + ".template")
         fields = parse_fields(template_path)
         self.enable_fields(fields)
+
+    def on_payment_method_selector_changed(self):
+        print("selected")
 
     def enable_fields(self, fields):
         for field in fields:
