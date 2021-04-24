@@ -1,10 +1,11 @@
+import os
 import sys
+import pathlib
+
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import QFile, QDate
 
 from contract_generator_model import Ui_MainWindow
-
-from templates.contract_templates.cht import cht_contract_template
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -31,7 +32,15 @@ class MainWindow(QMainWindow):
         # Add template names to the selector
         if self.ui.contract_template_selector.isEnabled():
             self.ui.contract_template_selector.clear()
-            self.ui.contract_template_selector.addItems(cht_contract_template.templates.keys())
+
+            template_path = "templates/contract_templates/cht/"
+
+            path = os.walk(template_path)
+            for _, _, files in path:
+                for f in files:
+                    p = pathlib.Path(f)
+                    if p.suffix == ".txt":
+                        self.ui.contract_template_selector.addItem(p.stem)
 
 
 if __name__ == "__main__":
