@@ -33,7 +33,12 @@ class MainWindow(QMainWindow):
         if self.ui.contract_template_selector.isEnabled():
             self.ui.contract_template_selector.clear()
 
-            template_path = "templates/contract_templates/cht/"
+            template_path = "templates/contract_templates/" + {
+                u"\u7e41\u9ad4\u4e2d\u6587": "cht",
+                u"English": "en",
+                u"\u65e5\u672c\u8a9e": "ja",
+                u"\ud55c\uad6d\uc5b4": "ko"
+            }.get(self.ui.lang_selector.currentText())
 
             path = os.walk(template_path)
             for _, _, files in path:
