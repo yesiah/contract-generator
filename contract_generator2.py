@@ -7,13 +7,22 @@ from PySide6.QtCore import QFile, QDate
 
 from contract_generator_model import Ui_MainWindow
 
-def get_template_path(lang):
+def get_contract_template_path(lang):
     return "templates/contract_templates/" + {
         u"\u7e41\u9ad4\u4e2d\u6587": "cht",
         u"English": "en",
         u"\u65e5\u672c\u8a9e": "ja",
         u"\ud55c\uad6d\uc5b4": "ko"
     }.get(lang, "cht")
+
+def get_payment_method_template_path(lang):
+    return "templates/payment_method_templates/" + {
+        u"\u7e41\u9ad4\u4e2d\u6587": "cht",
+        u"English": "en",
+        u"\u65e5\u672c\u8a9e": "ja",
+        u"\ud55c\uad6d\uc5b4": "ko"
+    }.get(lang, "cht")
+
 
 from string import Formatter
 def parse_fields(template_path):
@@ -61,7 +70,7 @@ class MainWindow(QMainWindow):
         if self.ui.contract_template_selector.isEnabled():
             self.ui.contract_template_selector.clear()
 
-            template_path = get_template_path(self.ui.lang_selector.currentText())
+            template_path = get_contract_template_path(self.ui.lang_selector.currentText())
             path = os.walk(template_path)
             for _, _, files in path:
                 for f in files:
@@ -70,12 +79,23 @@ class MainWindow(QMainWindow):
                         self.ui.contract_template_selector.addItem(p.stem)
     
     def on_contract_template_selector_changed(self):
-        template_path = os.path.join(get_template_path(self.ui.lang_selector.currentText()), self.ui.contract_template_selector.currentText() + ".template")
+        template_path = os.path.join(get_contract_template_path(self.ui.lang_selector.currentText()), self.ui.contract_template_selector.currentText() + ".template")
         fields = parse_fields(template_path)
         self.enable_fields(fields)
 
+        if self.ui.payment_method_selector.isEnabled():
+            self.ui.payment_method_selector.clear()
+            payment_method_template_path = get_payment_method_template_path(self.ui.lang_selector.currentText())
+            for _, _, files in os.walk(payment_method_template_path):
+                for f in files:
+                    p = pathlib.Path(f)
+                    if p.suffix == ".template":
+                        self.ui.payment_method_selector.addItem(p.stem)
+
     def on_payment_method_selector_changed(self):
-        print("selected")
+        template_path = os.path.join(get_payment_method_template_path(self.ui.lang_selector.currentText()), self.ui.payment_method_selector.currentText() + ".template")
+        fields = parse_fields(template_path)
+        self.enable_fields(fields)
 
     def enable_fields(self, fields):
         for field in fields:
