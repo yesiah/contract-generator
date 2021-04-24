@@ -957,8 +957,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>contract_template_selector</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_contract_template_selector_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>354</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>391</x>
+     <y>-8</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_language_selector_changed()</slot>
+  <slot>on_contract_template_selector_changed()</slot>
  </slots>
 </ui>
