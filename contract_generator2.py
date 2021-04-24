@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
                 u"English": "en",
                 u"\u65e5\u672c\u8a9e": "ja",
                 u"\ud55c\uad6d\uc5b4": "ko"
-            }.get(self.ui.lang_selector.currentText())
+            }.get(self.ui.lang_selector.currentText(), "cht")
 
             path = os.walk(template_path)
             for _, _, files in path:
