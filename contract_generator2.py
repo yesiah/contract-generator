@@ -17,14 +17,24 @@ def get_template_path(lang):
 
 from string import Formatter
 def parse_fields(template_path):
-    with open(template_path, 'rb') as f:
-        txt = f.read().decode('UTF-8')
-        return set(fname for _, fname, _, _ in Formatter().parse(txt) if fname)
+    if os.path.exists(template_path):
+        with open(template_path, 'rb') as f:
+            txt = f.read().decode('UTF-8')
+            return set(fname for _, fname, _, _ in Formatter().parse(txt) if fname)
+    
+    return []
 
 def enable_controls(control_list):
     for control in control_list:
         control.setEnabled(True)
 
+"""
+Step1: Select language
+Step2: Select contract template
+Step3: Select payment method
+Step4: Fill in the table
+Step5: Execute
+"""
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
