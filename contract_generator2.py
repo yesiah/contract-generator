@@ -96,6 +96,10 @@ class MainWindow(QMainWindow):
         template_path = os.path.join(get_payment_method_template_path(self.ui.lang_selector.currentText()), self.ui.payment_method_selector.currentText() + ".template")
         fields = parse_fields(template_path)
         self.enable_fields(fields)
+    
+    def check_mandatory_fields(self):
+        # Enable or disable based on whether mandatory fields are all filled
+        print("checking")
 
     def enable_fields(self, fields):
         for field in fields:
