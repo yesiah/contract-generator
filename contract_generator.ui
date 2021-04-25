@@ -14,7 +14,7 @@
    <string>Contract Generator</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="execute_button">
     <property name="enabled">
      <bool>false</bool>
     </property>

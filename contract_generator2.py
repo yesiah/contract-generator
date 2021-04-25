@@ -2,7 +2,7 @@ import os
 import sys
 import pathlib
 
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QButtonGroup
 from PySide6.QtCore import QFile, QDate
 
 from contract_generator_model import Ui_MainWindow
@@ -98,8 +98,68 @@ class MainWindow(QMainWindow):
         enable_controls(self.fields2controls(fields))
     
     def check_mandatory_fields(self):
-        # Enable or disable based on whether mandatory fields are all filled
-        print("checking")
+        self.ui.execute_button.setEnabled(False)
+        if self.ui.lang_selector.currentIndex() == -1 or self.ui.contract_template_selector.currentIndex() == -1:
+            return
+
+        if self.ui.start_date_selector.isEnabled() and self.ui.end_date_selector.isEnabled() and (self.ui.end_date_selector.date() < self.ui.start_date_selector.data()):
+            return
+        
+        if self.ui.party_a_name_selector.isEnabled() and self.ui.party_a_name_selector.currentIndex() == -1:
+            return
+        
+        if self.ui.party_a_representative_selector.isEnabled() and self.ui.party_a_representative_selector.currentIndex() == -1:
+            return
+    
+        if self.ui.party_a_registered_address_edit.isEnabled() and self.ui.party_a_registered_address_edit.text() == "":
+            return
+
+        if self.ui.party_b_name_edit.isEnabled() and self.ui.party_b_name_edit.text() == "":
+            return
+
+        if self.ui.party_b_representative_edit.isEnabled() and self.ui.party_b_representative_edit.text() == "":
+            return
+
+        if self.ui.party_b_registered_address_edit.isEnabled() and self.ui.party_b_registered_address_edit.text() == "":
+            return
+
+        if self.ui.payment_method_selector.isEnabled() and self.ui.payment_method_selector.currentIndex() == -1:
+            return
+
+        if self.ui.currency_selector.isEnabled() and self.ui.currency_selector.currentIndex() == -1:
+            return
+
+        if self.ui.bank_account_edit.isEnabled() and self.ui.bank_account_edit.text() == "":
+            return
+
+        if self.ui.account_name_edit.isEnabled() and self.ui.account_name_edit.text() == "":
+            return
+
+        if self.ui.name_of_the_bank_edit.isEnabled() and self.ui.name_of_the_bank_edit.text() == "":
+            return
+
+        if self.ui.bank_code_edit.isEnabled() and self.ui.bank_code_edit.text() == "":
+            return
+
+        if self.ui.name_of_the_branch_edit.isEnabled() and self.ui.name_of_the_branch_edit.text() == "":
+            return
+
+        if self.ui.branch_code_edit.isEnabled() and self.ui.branch_code_edit.text() == "":
+            return
+
+        if self.ui.country_of_the_bank_receiving_the_payment_edit.isEnabled() and self.ui.country_of_the_bank_receiving_the_payment_edit.text() == "":
+            return
+        
+        if self.ui.other_code_edit.isEnabled() and self.ui.other_code_edit == "":
+            button_group = QButtonGroup()
+            button_group.addButton(self.ui.other_code_cnaps)
+            button_group.addButton(self.ui.other_code_skn_code)
+            button_group.addButton(self.ui.other_code_bsb_number)
+            button_group.addButton(self.ui.other_code_iban_code)
+            if button_group.checkedId == -1:
+                return
+
+        self.ui.execute_button.setEnabled(True)
 
     def fields2controls(self, fields):
         controls = []

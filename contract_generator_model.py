@@ -20,10 +20,10 @@ class Ui_MainWindow(object):
         MainWindow.resize(792, 682)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setEnabled(False)
-        self.pushButton.setGeometry(QRect(300, 600, 171, 41))
+        self.execute_button = QPushButton(self.centralwidget)
+        self.execute_button.setObjectName(u"execute_button")
+        self.execute_button.setEnabled(False)
+        self.execute_button.setGeometry(QRect(300, 600, 171, 41))
         self.scrollArea = QScrollArea(self.centralwidget)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setGeometry(QRect(10, 10, 771, 581))
@@ -514,7 +514,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Contract Generator", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Execute", None))
+        self.execute_button.setText(QCoreApplication.translate("MainWindow", u"Execute", None))
         self.party_b_representative_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Representative ---", None))
         self.party_b_name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Party B Name ---", None))
         self.lang_label.setText(QCoreApplication.translate("MainWindow", u"Language", None))
