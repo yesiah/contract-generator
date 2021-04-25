@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(791, 682)
+        MainWindow.resize(792, 682)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.pushButton = QPushButton(self.centralwidget)
@@ -39,7 +39,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 769, 810))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 769, 790))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.gridLayout_3 = QGridLayout()
@@ -410,46 +410,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.name_of_the_branch_label, 3, 0, 1, 1)
 
-        self.other_code_group = QGroupBox(self.scrollAreaWidgetContents)
-        self.other_code_group.setObjectName(u"other_code_group")
-        self.other_code_group.setEnabled(False)
-        self.other_code_group.setMinimumSize(QSize(0, 60))
-        font = QFont()
-        font.setPointSize(12)
-        self.other_code_group.setFont(font)
-        self.horizontalLayoutWidget_3 = QWidget(self.other_code_group)
-        self.horizontalLayoutWidget_3.setObjectName(u"horizontalLayoutWidget_3")
-        self.horizontalLayoutWidget_3.setEnabled(False)
-        self.horizontalLayoutWidget_3.setGeometry(QRect(0, 20, 391, 41))
-        self.horizontalLayout_3 = QHBoxLayout(self.horizontalLayoutWidget_3)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.other_code_cnaps = QRadioButton(self.horizontalLayoutWidget_3)
-        self.other_code_cnaps.setObjectName(u"other_code_cnaps")
-
-        self.horizontalLayout_3.addWidget(self.other_code_cnaps)
-
-        self.other_code_skn_code = QRadioButton(self.horizontalLayoutWidget_3)
-        self.other_code_skn_code.setObjectName(u"other_code_skn_code")
-        self.other_code_skn_code.setEnabled(False)
-
-        self.horizontalLayout_3.addWidget(self.other_code_skn_code)
-
-        self.other_code_bsb_number = QRadioButton(self.horizontalLayoutWidget_3)
-        self.other_code_bsb_number.setObjectName(u"other_code_bsb_number")
-        self.other_code_bsb_number.setEnabled(False)
-
-        self.horizontalLayout_3.addWidget(self.other_code_bsb_number)
-
-        self.other_code_iban_code = QRadioButton(self.horizontalLayoutWidget_3)
-        self.other_code_iban_code.setObjectName(u"other_code_iban_code")
-        self.other_code_iban_code.setEnabled(False)
-
-        self.horizontalLayout_3.addWidget(self.other_code_iban_code)
-
-
-        self.gridLayout.addWidget(self.other_code_group, 5, 0, 1, 3)
-
         self.country_of_the_bank_receiving_the_payment_edit = QLineEdit(self.scrollAreaWidgetContents)
         self.country_of_the_bank_receiving_the_payment_edit.setObjectName(u"country_of_the_bank_receiving_the_payment_edit")
         self.country_of_the_bank_receiving_the_payment_edit.setEnabled(False)
@@ -462,6 +422,49 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.other_code_edit, 5, 3, 1, 1)
 
+        self.other_code_group = QGroupBox(self.scrollAreaWidgetContents)
+        self.other_code_group.setObjectName(u"other_code_group")
+        self.other_code_group.setEnabled(False)
+        self.other_code_group.setMinimumSize(QSize(0, 40))
+        self.horizontalLayoutWidget = QWidget(self.other_code_group)
+        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
+        self.horizontalLayoutWidget.setGeometry(QRect(10, 20, 421, 20))
+        self.horizontalLayout_2 = QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.other_code_cnaps = QRadioButton(self.horizontalLayoutWidget)
+        self.other_code_cnaps.setObjectName(u"other_code_cnaps")
+        self.other_code_cnaps.setEnabled(False)
+        font = QFont()
+        font.setPointSize(12)
+        self.other_code_cnaps.setFont(font)
+
+        self.horizontalLayout_2.addWidget(self.other_code_cnaps)
+
+        self.other_code_skn_code = QRadioButton(self.horizontalLayoutWidget)
+        self.other_code_skn_code.setObjectName(u"other_code_skn_code")
+        self.other_code_skn_code.setEnabled(False)
+        self.other_code_skn_code.setFont(font)
+
+        self.horizontalLayout_2.addWidget(self.other_code_skn_code)
+
+        self.other_code_bsb_number = QRadioButton(self.horizontalLayoutWidget)
+        self.other_code_bsb_number.setObjectName(u"other_code_bsb_number")
+        self.other_code_bsb_number.setEnabled(False)
+        self.other_code_bsb_number.setFont(font)
+
+        self.horizontalLayout_2.addWidget(self.other_code_bsb_number)
+
+        self.other_code_iban_code = QRadioButton(self.horizontalLayoutWidget)
+        self.other_code_iban_code.setObjectName(u"other_code_iban_code")
+        self.other_code_iban_code.setEnabled(False)
+        self.other_code_iban_code.setFont(font)
+
+        self.horizontalLayout_2.addWidget(self.other_code_iban_code)
+
+
+        self.gridLayout.addWidget(self.other_code_group, 5, 0, 1, 3)
+
 
         self.verticalLayout.addLayout(self.gridLayout)
 
@@ -473,7 +476,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 791, 22))
+        self.menubar.setGeometry(QRect(0, 0, 792, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -539,12 +542,12 @@ class Ui_MainWindow(object):
         self.swift_code_label.setText(QCoreApplication.translate("MainWindow", u"Swift Code", None))
         self.swift_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Swift Code (optional) --- ", None))
         self.name_of_the_branch_label.setText(QCoreApplication.translate("MainWindow", u"Name of the Branch", None))
+        self.country_of_the_bank_receiving_the_payment_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Country of the Bank Receiving the Payment ---", None))
+        self.other_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Other Code (optional) ---", None))
         self.other_code_group.setTitle(QCoreApplication.translate("MainWindow", u"Other Code", None))
         self.other_code_cnaps.setText(QCoreApplication.translate("MainWindow", u"CNAPS", None))
         self.other_code_skn_code.setText(QCoreApplication.translate("MainWindow", u"SKN CODE", None))
         self.other_code_bsb_number.setText(QCoreApplication.translate("MainWindow", u"BSB NUMBER", None))
         self.other_code_iban_code.setText(QCoreApplication.translate("MainWindow", u"IBAN CODE", None))
-        self.country_of_the_bank_receiving_the_payment_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Country of the Bank Receiving the Payment ---", None))
-        self.other_code_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  --- Other Code (optional) ---", None))
     # retranslateUi
 
