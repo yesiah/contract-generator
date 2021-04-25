@@ -81,7 +81,7 @@ class MainWindow(QMainWindow):
     def on_contract_template_selector_changed(self):
         template_path = os.path.join(get_contract_template_path(self.ui.lang_selector.currentText()), self.ui.contract_template_selector.currentText() + ".template")
         fields = parse_fields(template_path)
-        self.enable_fields(fields)
+        enable_controls(self.fields2controls(fields))
 
         if self.ui.payment_method_selector.isEnabled():
             self.ui.payment_method_selector.clear()
@@ -95,16 +95,19 @@ class MainWindow(QMainWindow):
     def on_payment_method_selector_changed(self):
         template_path = os.path.join(get_payment_method_template_path(self.ui.lang_selector.currentText()), self.ui.payment_method_selector.currentText() + ".template")
         fields = parse_fields(template_path)
-        self.enable_fields(fields)
+        enable_controls(self.fields2controls(fields))
     
     def check_mandatory_fields(self):
         # Enable or disable based on whether mandatory fields are all filled
         print("checking")
 
-    def enable_fields(self, fields):
+    def fields2controls(self, fields):
+        controls = []
         for field in fields:
-            enable_controls(self.field2control(field))
-    
+            controls.extend(self.field2control(field))
+        
+        return controls
+
     def field2control(self, field):
         return {
             "start_date": [self.ui.start_date_label, self.ui.start_date_selector],
