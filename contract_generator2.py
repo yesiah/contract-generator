@@ -1,28 +1,32 @@
 import os
 import sys
 import pathlib
+import ast
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QButtonGroup
 from PySide6.QtCore import QFile, QDate
 
 from contract_generator_model import Ui_MainWindow
 
-def get_contract_template_path(lang):
-    return "templates/contract_templates/" + {
+"""
+IBM 3 character code
+"""
+def lang2code(name):
+    return {
         u"\u7e41\u9ad4\u4e2d\u6587": "cht",
-        u"English": "en",
-        u"\u65e5\u672c\u8a9e": "ja",
-        u"\ud55c\uad6d\uc5b4": "ko"
-    }.get(lang, "cht")
+        u"English": "enu",
+        u"\u65e5\u672c\u8a9e": "jpn",
+        u"\ud55c\uad6d\uc5b4": "kor"
+    }.get(name, "cht")
+
+def get_contract_template_path(lang):
+    return "templates/contract_templates/" + lang2code(lang)
 
 def get_payment_method_template_path(lang):
-    return "templates/payment_method_templates/" + {
-        u"\u7e41\u9ad4\u4e2d\u6587": "cht",
-        u"English": "en",
-        u"\u65e5\u672c\u8a9e": "ja",
-        u"\ud55c\uad6d\uc5b4": "ko"
-    }.get(lang, "cht")
+    return "templates/payment_method_templates/" + lang2code(lang)
 
+def get_party_a_template_path(lang):
+    return "templates/party_a_template/" + lang2code(lang)
 
 from string import Formatter
 def parse_fields(template_path):
@@ -83,6 +87,16 @@ class MainWindow(QMainWindow):
         fields = parse_fields(template_path)
         enable_controls(self.fields2controls(fields))
 
+        if self.ui.party_a_name_selector.isEnabled():
+            self.party_a_template = self.load_party_a_template()
+            if self.party_a_template:
+                self.ui.party_a_name_selector.clear()
+                self.ui.party_a_name_selector.setCurrentIndex(-1)
+                self.ui.party_a_representative_selector.clear()
+                self.ui.party_a_representative_selector.setCurrentIndex(-1)
+
+                self.ui.party_a_name_selector.addItems(self.party_a_template.keys())
+
         if self.ui.payment_method_selector.isEnabled():
             self.ui.payment_method_selector.clear()
             payment_method_template_path = get_payment_method_template_path(self.ui.lang_selector.currentText())
@@ -91,6 +105,17 @@ class MainWindow(QMainWindow):
                     p = pathlib.Path(f)
                     if p.suffix == ".template":
                         self.ui.payment_method_selector.addItem(p.stem)
+    
+    def load_party_a_template(self):
+        template_path = get_party_a_template_path(self.ui.lang_selector.currentText())
+        for _, _, files in os.walk(template_path):
+            templates = [pathlib.Path(x) for x in files if pathlib.Path(x).suffix == ".template"]
+            if templates:
+                with open(os.path.join(template_path, templates[0]), 'rb') as f:
+                    txt = f.read().decode('UTF-8')
+                    return ast.literal_eval(txt)
+        
+        return {}
 
     def on_payment_method_selector_changed(self):
         template_path = os.path.join(get_payment_method_template_path(self.ui.lang_selector.currentText()), self.ui.payment_method_selector.currentText() + ".template")
