@@ -116,6 +116,9 @@ class MainWindow(QMainWindow):
                     return ast.literal_eval(txt)
         
         return {}
+    
+    def on_party_a_name_selector_changed(self):
+        print("select party a")
 
     def on_payment_method_selector_changed(self):
         template_path = os.path.join(get_payment_method_template_path(self.ui.lang_selector.currentText()), self.ui.payment_method_selector.currentText() + ".template")

@@ -505,6 +505,7 @@ class Ui_MainWindow(object):
         self.name_of_the_branch_edit.editingFinished.connect(MainWindow.check_mandatory_fields)
         self.branch_code_edit.editingFinished.connect(MainWindow.check_mandatory_fields)
         self.country_of_the_bank_receiving_the_payment_edit.editingFinished.connect(MainWindow.check_mandatory_fields)
+        self.party_a_name_selector.currentTextChanged.connect(MainWindow.on_party_a_name_selector_changed)
 
         self.lang_selector.setCurrentIndex(-1)
 

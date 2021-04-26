@@ -1308,11 +1308,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>party_a_name_selector</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_party_a_name_selector_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>152</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>229</x>
+     <y>26</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_language_selector_changed()</slot>
   <slot>on_contract_template_selector_changed()</slot>
   <slot>on_payment_method_selector_changed()</slot>
   <slot>check_mandatory_fields()</slot>
+  <slot>on_party_a_name_selector_changed()</slot>
  </slots>
 </ui>
