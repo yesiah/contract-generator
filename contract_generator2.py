@@ -118,7 +118,12 @@ class MainWindow(QMainWindow):
         return {}
     
     def on_party_a_name_selector_changed(self):
-        print("select party a")
+        if self.party_a_template:
+            self.ui.party_a_representative_selector.clear()
+            self.ui.party_a_representative_selector.setCurrentIndex(-1)
+            self.ui.party_a_representative_label.setEnabled(True)
+            self.ui.party_a_representative_selector.setEnabled(True)
+            self.ui.party_a_representative_selector.addItems(self.party_a_template[self.ui.party_a_name_selector.currentText()])
 
     def on_payment_method_selector_changed(self):
         template_path = os.path.join(get_payment_method_template_path(self.ui.lang_selector.currentText()), self.ui.payment_method_selector.currentText() + ".template")
