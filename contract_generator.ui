@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>792</width>
+    <width>791</width>
     <height>682</height>
    </rect>
   </property>
@@ -207,6 +207,9 @@
           <property name="enabled">
            <bool>false</bool>
           </property>
+          <property name="placeholderText">
+           <string>  (optional)</string>
+          </property>
          </widget>
         </item>
         <item row="2" column="0">
@@ -241,7 +244,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Party B Name ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -249,9 +252,6 @@
          <widget class="QLineEdit" name="party_b_registered_address_edit">
           <property name="enabled">
            <bool>false</bool>
-          </property>
-          <property name="placeholderText">
-           <string>  --- Party B Registered Address ---</string>
           </property>
          </widget>
         </item>
@@ -349,9 +349,6 @@
           <property name="enabled">
            <bool>false</bool>
           </property>
-          <property name="placeholderText">
-           <string>  --- Party B Representative ---</string>
-          </property>
          </widget>
         </item>
         <item row="6" column="0">
@@ -445,7 +442,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Party A Registered Address ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -492,6 +489,9 @@
          <widget class="QLineEdit" name="party_b_contact_address_edit">
           <property name="enabled">
            <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>  (optional)</string>
           </property>
          </widget>
         </item>
@@ -711,7 +711,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Bank Account ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -731,7 +731,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Bank Code ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -741,7 +741,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Name of the Bank ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -751,7 +751,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Account Name ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -771,7 +771,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Name of the Branch ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -821,7 +821,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Branch Code ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -841,7 +841,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Swift Code (optional) --- </string>
+           <string>  (optional)</string>
           </property>
          </widget>
         </item>
@@ -861,7 +861,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Country of the Bank Receiving the Payment ---</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -871,7 +871,7 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>  --- Other Code (optional) ---</string>
+           <string>  (optional)</string>
           </property>
          </widget>
         </item>
@@ -987,7 +987,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>792</width>
+     <width>791</width>
      <height>22</height>
     </rect>
    </property>
