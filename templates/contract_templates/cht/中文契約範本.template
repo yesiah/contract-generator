@@ -4,8 +4,9 @@
 （本契約審閱期間一日，{start_date} 由甲方攜回審閱）
 立契約書人
 旅客姓名：{party_a_name} (以下稱甲方)
-旅行社名稱：{party_b_name} (以下稱乙方)
+旅行社名稱：{party_b_name} (以下稱乙方) {party_b_representative}
 {party_a_registered_address}
+{party_b_registered_address}
 甲乙雙方同意就本旅遊事項，依下列規定辦理：
 第一條（國內旅遊之定義）
 本契約所謂國內旅遊，指在台灣、澎湖、金門、馬祖及其他自由地區之我國疆域範圍內之旅遊。
