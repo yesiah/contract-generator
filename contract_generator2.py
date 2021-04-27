@@ -232,6 +232,9 @@ class MainWindow(QMainWindow):
                            self.ui.other_code_edit]
         }.get(field)
 
+    def on_execute(self):
+        print("execute")
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 

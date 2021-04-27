@@ -1035,8 +1035,8 @@
    <slot>on_payment_method_selector_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>292</x>
-     <y>523</y>
+     <x>371</x>
+     <y>604</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -1056,7 +1056,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>303</x>
-     <y>-10</y>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
@@ -1099,8 +1099,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>323</x>
-     <y>261</y>
+     <x>448</x>
+     <y>302</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1115,8 +1115,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>323</x>
-     <y>292</y>
+     <x>448</x>
+     <y>333</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1131,8 +1131,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>482</x>
-     <y>323</y>
+     <x>657</x>
+     <y>364</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1147,8 +1147,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>323</x>
-     <y>369</y>
+     <x>448</x>
+     <y>447</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1163,8 +1163,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>323</x>
-     <y>411</y>
+     <x>448</x>
+     <y>489</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1179,8 +1179,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>323</x>
-     <y>463</y>
+     <x>448</x>
+     <y>541</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1195,8 +1195,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>273</x>
-     <y>526</y>
+     <x>371</x>
+     <y>604</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1211,8 +1211,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>273</x>
-     <y>572</y>
+     <x>371</x>
+     <y>650</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1227,8 +1227,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>461</x>
-     <y>564</y>
+     <x>537</x>
+     <y>651</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1243,8 +1243,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>458</x>
-     <y>614</y>
+     <x>586</x>
+     <y>686</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1259,8 +1259,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>458</x>
-     <y>645</y>
+     <x>586</x>
+     <y>717</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1275,8 +1275,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>264</x>
-     <y>676</y>
+     <x>377</x>
+     <y>748</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1291,8 +1291,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>653</x>
-     <y>676</y>
+     <x>766</x>
+     <y>748</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1307,8 +1307,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>264</x>
-     <y>707</y>
+     <x>377</x>
+     <y>779</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1323,8 +1323,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>653</x>
-     <y>707</y>
+     <x>766</x>
+     <y>779</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1339,8 +1339,8 @@
    <slot>check_mandatory_fields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>653</x>
-     <y>743</y>
+     <x>766</x>
+     <y>815</y>
     </hint>
     <hint type="destinationlabel">
      <x>395</x>
@@ -1364,6 +1364,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>execute_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_execute()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>333</x>
+     <y>653</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>117</x>
+     <y>643</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_language_selector_changed()</slot>
@@ -1371,5 +1387,6 @@
   <slot>on_payment_method_selector_changed()</slot>
   <slot>check_mandatory_fields()</slot>
   <slot>on_party_a_name_selector_changed()</slot>
+  <slot>on_execute()</slot>
  </slots>
 </ui>
