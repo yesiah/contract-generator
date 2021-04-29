@@ -439,10 +439,6 @@ class MainWindow(QMainWindow):
         d = dict(zip(field_names, field_values))
         return template.format(**d)
 
-    def on_execute(self):
-        md = self.get_markdown()
-        print(md)
-    
     def get_payment_method_md(self):
         # if payment method active:
         #     payment_method_md = load_payment_method_template()
@@ -452,6 +448,9 @@ class MainWindow(QMainWindow):
         #     return payment_method_md.format(**payment_method_dict)
         return
 
+    def on_execute(self):
+        md = self.get_markdown()
+        print(md)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

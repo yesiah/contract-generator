@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>791</width>
+    <width>793</width>
     <height>682</height>
    </rect>
   </property>
@@ -530,9 +530,27 @@
           <property name="enabled">
            <bool>false</bool>
           </property>
+          <property name="currentIndex">
+           <number>-1</number>
+          </property>
           <property name="placeholderText">
            <string>--- Currency ---</string>
           </property>
+          <item>
+           <property name="text">
+            <string>NTD</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>USD</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>JPY</string>
+           </property>
+          </item>
          </widget>
         </item>
         <item row="1" column="1">
@@ -987,7 +1005,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>791</width>
+     <width>793</width>
      <height>22</height>
     </rect>
    </property>

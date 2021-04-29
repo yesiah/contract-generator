@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(791, 682)
+        MainWindow.resize(793, 682)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.execute_button = QPushButton(self.centralwidget)
@@ -266,6 +266,9 @@ class Ui_MainWindow(object):
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.currency_selector = QComboBox(self.scrollAreaWidgetContents)
+        self.currency_selector.addItem("")
+        self.currency_selector.addItem("")
+        self.currency_selector.addItem("")
         self.currency_selector.setObjectName(u"currency_selector")
         self.currency_selector.setEnabled(False)
 
@@ -502,7 +505,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 791, 22))
+        self.menubar.setGeometry(QRect(0, 0, 793, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -535,6 +538,7 @@ class Ui_MainWindow(object):
         self.execute_button.clicked.connect(MainWindow.on_execute)
 
         self.lang_selector.setCurrentIndex(-1)
+        self.currency_selector.setCurrentIndex(-1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -569,6 +573,10 @@ class Ui_MainWindow(object):
         self.start_date_label.setText(QCoreApplication.translate("MainWindow", u"Start Date", None))
         self.party_b_contact_address_label.setText(QCoreApplication.translate("MainWindow", u"Party B Contact Address", None))
         self.party_b_contact_address_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"  (optional)", None))
+        self.currency_selector.setItemText(0, QCoreApplication.translate("MainWindow", u"NTD", None))
+        self.currency_selector.setItemText(1, QCoreApplication.translate("MainWindow", u"USD", None))
+        self.currency_selector.setItemText(2, QCoreApplication.translate("MainWindow", u"JPY", None))
+
         self.currency_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Currency ---", None))
         self.currency_label.setText(QCoreApplication.translate("MainWindow", u"Currency", None))
         self.payment_method_label.setText(QCoreApplication.translate("MainWindow", u"Payment Method", None))
