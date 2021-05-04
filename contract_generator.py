@@ -1,64 +1,105 @@
+## 必填 Entries
+# start_date :合約起始日 (date)
+# end_date：合約到期日 (date, but >= start_date)
+# party_a_name: 甲方名稱 (combo box)
+# party_a_representative (combo box, filtered by party_a_name)
+# party_a_registered_address 甲方公司登記地址 (rich edit)
+# party_a_contact_address (optional rich edit)
+# party_b_name: 乙方名稱 (rich edit)
+# party_b_representative (rich edit)
+# party_b_registered_address 乙方公司登記地址 (rich edit)
+# party_b_contact_address (optional rich edit)
+# signature_date (date)
+# payment_method (combo box)
+# currency (combo box 十幾種)
+#   is_cross_border_payment (Yes/No checkbox, always follow currency)
+
+## Optional rich edit
+## 1-7 must be either all empty of all-filled
+## if 1-7 is empty, remove 8 and 9
+# 1. bank_account 銀行帳號
+# 2. account_name 戶名
+# 3. name_of_the_bank 銀行名稱
+# 4. bank_code 銀行代碼
+# 5. name_of_the_branch 分行名稱
+# 6. branch_code 分行代碼
+# 7. country_of_the_bank_receiving_the_payment 收款行國別
+# swift_code SWIFT CODE
+# other_code  □CNAPS □SKN CODE □BSB NUMBER □IBAN CODE
+
+import os
 import sys
-import enum
 import pathlib
-from PySide6 import QtCore, QtWidgets
+import ast
 
-import field_widget
-from string import Formatter
-import pdf
+from PySide6.QtWidgets import QApplication, QMainWindow, QButtonGroup
+from PySide6.QtCore import QFile, QDate, QLocale
 
-class Field(enum.Enum):
-    StartDate = 1,
-    EndDate = 2,
-    PartyAName = 3,
-    PartyARepresentative = 4,
-    PartyARegisteredAddress = 5,
-    PartyBName = 6,
-    PartyBRepresentative = 7,
-    PartyBRegisteredAddress = 8,
-    SignatureDate = 9,
-    PaymentMethod = 10,
-    Currency = 11
+from contract_generator_model import Ui_MainWindow
 
-def token2keywidget(x):
+"""
+IBM 3 character code
+"""
+def lang2code(name):
     return {
-        "start_date": (Field.StartDate, field_widget.start_date_widgets()),
-        "end_date": (Field.EndDate, field_widget.end_date_widgets()),
-        "party_a_name": (Field.PartyAName, field_widget.party_a_name_widgets()),
-        "party_a_representative": (Field.PartyARepresentative, field_widget.party_a_representative_widgets()),
-        "party_a_registered_address": (Field.PartyARegisteredAddress, field_widget.party_a_registered_address_widgets()),
-        "party_b_name": (Field.PartyBName, field_widget.party_b_name_widgets()),
-        "party_b_representative": (Field.PartyBRepresentative, field_widget.party_b_representative_widgets()),
-        "party_b_registered_address": (Field.PartyBRegisteredAddress, field_widget.party_b_registered_address_widgets()),
-        "signature_date": (Field.SignatureDate, field_widget.signature_date_widgets()),
-        "payment_method": (Field.PaymentMethod, field_widget.payment_method_widgets())
-    }.get(x)
+        u"\u7e41\u9ad4\u4e2d\u6587": "cht",
+        u"English": "enu",
+        u"\u65e5\u672c\u8a9e": "jpn",
+        u"\ud55c\uad6d\uc5b4": "kor"
+    }.get(name, "cht")
+
+def get_contract_template_dir(lang):
+    return "templates/contract_templates/" + lang2code(lang)
+
+def get_payment_method_template_dir(lang):
+    return "templates/payment_method_templates/" + lang2code(lang)
+
+def get_party_a_template_dir(lang):
+    return "templates/party_a_template/" + lang2code(lang)
+
+from string import Formatter
+def read_utf8(path):
+    if os.path.exists(path):
+        with open(path, 'rb') as f:
+            return f.read().decode('UTF-8')
+
+def parse_fields(txt):
+    if txt:
+        return [fname for _, fname, _, _ in Formatter().parse(txt) if fname]
+
+def read_fields(path):
+    txt = read_utf8(path)
+    return parse_fields(txt)
+
+def enable_controls(control_list):
+    for control in control_list:
+        control.setEnabled(True)
 
 def zh_tw_locale():
-    return QtCore.QLocale(QtCore.QLocale.Chinese, QtCore.QLocale.TraditionalChineseScript, QtCore.QLocale.Taiwan)
+    return QLocale(QLocale.Chinese, QLocale.TraditionalChineseScript, QLocale.Taiwan)
 
 def zh_tw_date_format():
     return "yyyy 年 MM 月 dd 日"
 
 def en_us_locale():
-    return QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates)
+    return QLocale(QLocale.English, QLocale.UnitedStates)
 
 def en_us_date_format():
     return "MMMM dd, yyyy"
 
 def ja_jp_locale():
-    return QtCore.QLocale(QtCore.QLocale.Japanese, QtCore.QLocale.Japan)
+    return QLocale(QLocale.Japanese, QLocale.Japan)
 
 def ja_jp_date_format():
     return "yyyy 年 MM 月 dd 日"
 
 def ko_kr_locale():
-    return QtCore.QLocale(QtCore.QLocale.Korean, QtCore.QLocale.SouthKorea)
+    return QLocale(QLocale.Korean, QLocale.SouthKorea)
 
 def ko_kr_date_format():
     return "yyyy 년 MM 월 dd 일"
 
-def sel_locale(x):
+def select_locale(x):
     return {
         "繁體中文": zh_tw_locale(), 
         "English": en_us_locale(), 
@@ -66,7 +107,7 @@ def sel_locale(x):
         "한국어": ko_kr_locale()
     }.get(x, en_us_locale())  
 
-def sel_date_format(x):
+def select_date_format(x):
     return {
         "繁體中文": zh_tw_date_format(), 
         "English": en_us_date_format(), 
@@ -74,88 +115,372 @@ def sel_date_format(x):
         "한국어": ko_kr_date_format()
     }.get(x, en_us_date_format())  
 
-def sel_locale_and_date_format(x):
-    return (sel_locale(x), sel_date_format(x))
+def select_locale_and_date_format(x):
+    return (select_locale(x), select_date_format(x))
 
-def pop_up_done_message():
-    done_message_box = QtWidgets.QMessageBox(text="Done!")
-    done_message_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
-    done_message_box.exec_()
+def to_date_str(lang, qdate):
+    curr_locale, date_fmt = select_locale_and_date_format(lang)
+    return curr_locale.toString(qdate, date_fmt)
 
-def parse_fields(template_path):
-    with open(template_path, 'rb') as f:
-        txt = f.read().decode('UTF-8')
-        return set(fname for _, fname, _, _ in Formatter().parse(txt) if fname)
-
-def texts_pass_one(template_path, party_a_name, party_b_name, start_date, signature_date):
-    with open(template_path, 'rb') as template_file:
-        txt = template_file.read().decode('UTF-8')
-        txt = txt.format(party_a_name=party_a_name, party_b_name=party_b_name, start_date=start_date, signature_date=signature_date)
-        return txt
-
-class MyWidget(QtWidgets.QWidget):
+"""
+Step1: Select language
+Step2: Select contract template
+(Step3: Select payment method)
+Step4: Fill in the table
+Step5: Execute
+"""
+class MainWindow(QMainWindow):
     def __init__(self):
-        super().__init__()
+        super(MainWindow, self).__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
 
-        self.setWindowTitle("Contract generator")
+        self.init()
 
-        # Language
-        self.lang = QtWidgets.QLabel("Language")
-        self.lang_selector = QtWidgets.QComboBox()
-        self.lang_selector.addItems(["繁體中文", "English", "日本語", "한국어"])
+    def init(self):
+        self.init_date_controls()
+    
+    def init_date_controls(self):
+        today = QDate.currentDate()
+        self.ui.start_date_selector.setDate(today)
+        self.ui.end_date_selector.setDate(today)
+        self.ui.signature_date_selector.setDate(today)
+    
+    def on_language_selector_changed(self):
+        # Disable all other controls
+        # Enable template selector
+        self.ui.contract_template_label.setEnabled(self.ui.lang_selector.currentIndex() != -1)
+        self.ui.contract_template_selector.setEnabled(self.ui.lang_selector.currentIndex() != -1)
+        # Add template names to the selector
+        if self.ui.contract_template_selector.isEnabled():
+            self.ui.contract_template_selector.clear()
 
-        # Link elements
-        self.layout = QtWidgets.QGridLayout(self)
-        self.layout.addWidget(self.lang, 0, 0)
-        self.layout.addWidget(self.lang_selector, 0, 1)
+            template_dir = get_contract_template_dir(self.ui.lang_selector.currentText())
+            for _, _, files in os.walk(template_dir):
+                for f in files:
+                    p = pathlib.Path(f)
+                    if p.suffix == ".template":
+                        self.ui.contract_template_selector.addItem(p.stem)
+    
+    def get_contract_template_path(self):
+        return os.path.join(get_contract_template_dir(self.ui.lang_selector.currentText()), self.ui.contract_template_selector.currentText() + ".template")
+    
+    def on_contract_template_selector_changed(self):
+        template_path = self.get_contract_template_path()
+        fields = read_fields(template_path)
+        enable_controls(self.fields2controls(fields))
 
-        self.layout.setRowMinimumHeight(1, 15)
+        if self.ui.party_a_name_selector.isEnabled():
+            self.party_a_template = self.load_party_a_template()
+            if self.party_a_template:
+                self.ui.party_a_name_selector.clear()
+                self.ui.party_a_name_selector.setCurrentIndex(-1)
+                self.ui.party_a_representative_selector.clear()
+                self.ui.party_a_representative_selector.setCurrentIndex(-1)
 
-        dynamic_fields = sorted(parse_fields("/Users/yhh/github-repo/contract-generator/contract-templates/cht/中文契約範本.txt"))
-        print(dynamic_fields)
-        row = 2
-        self.widget_dict = dict(map(token2keywidget, dynamic_fields))
-        for widgets in self.widget_dict.values():
-            col = 0
-            for widget in widgets:
-                self.layout.addWidget(widget, row, col)
-                col = col + 1
-            row = row + 1
+                self.ui.party_a_name_selector.addItems(self.party_a_template.keys())
+
+        if self.ui.payment_method_selector.isEnabled():
+            self.ui.payment_method_selector.clear()
+            payment_method_template_dir = get_payment_method_template_dir(self.ui.lang_selector.currentText())
+            for _, _, files in os.walk(payment_method_template_dir):
+                for f in files:
+                    p = pathlib.Path(f)
+                    if p.suffix == ".template":
+                        self.ui.payment_method_selector.addItem(p.stem)
+    
+    def load_party_a_template(self):
+        template_dir = get_party_a_template_dir(self.ui.lang_selector.currentText())
+        for _, _, files in os.walk(template_dir):
+            templates = [pathlib.Path(x) for x in files if pathlib.Path(x).suffix == ".template"]
+            if templates:
+                with open(os.path.join(template_dir, templates[0]), 'rb') as f:
+                    txt = f.read().decode('UTF-8')
+                    return ast.literal_eval(txt)
         
-        if Field.PaymentMethod in self.widget_dict:
-            self.widget_dict[Field.PaymentMethod][1].currentTextChanged.connect(self.on_payment_method_changed)
+        return {}
+    
+    def on_party_a_name_selector_changed(self):
+        if self.party_a_template:
+            self.ui.party_a_representative_selector.clear()
+            self.ui.party_a_representative_selector.setCurrentIndex(-1)
+            self.ui.party_a_representative_label.setEnabled(True)
+            self.ui.party_a_representative_selector.setEnabled(True)
+            self.ui.party_a_representative_selector.addItems(self.party_a_template[self.ui.party_a_name_selector.currentText()])
+    
+    def get_payment_method_template_path(self):
+        return os.path.join(get_payment_method_template_dir(self.ui.lang_selector.currentText()), self.ui.payment_method_selector.currentText() + ".template")
 
-        self.execute_button = QtWidgets.QPushButton("Execute")
-        self.execute_button.clicked.connect(self.on_execute)
-        self.layout.addWidget(self.execute_button, row, 0, 1, 2)
+    def on_payment_method_selector_changed(self):
+        template_path = self.get_payment_method_template_path()
+        fields = read_fields(template_path)
+        enable_controls(self.fields2controls(fields))
+    
+    def on_cross_border_payment_button_group_toggled(self, button, checked):
+        self.check_mandatory_fields()
+    
+    def on_other_code_button_group_toggled(self, button, checked):
+        self.check_mandatory_fields()
+    
+    def check_mandatory_fields(self):
+        print("check")
+        self.ui.execute_button.setEnabled(False)
+        if self.ui.lang_selector.currentIndex() == -1 or self.ui.contract_template_selector.currentIndex() == -1:
+            print("lang wrong")
+            return
 
-    def show_done(self):
-        pop_up_done_message()
+        if self.ui.start_date_selector.isEnabled() and self.ui.end_date_selector.isEnabled() and (self.ui.end_date_selector.date() < self.ui.start_date_selector.data()):
+            print("start date wrong")
+            return
+        
+        if self.ui.party_a_name_selector.isEnabled() and self.ui.party_a_name_selector.currentIndex() == -1:
+            print("party a name wrong")
+            return
+        
+        if self.ui.party_a_representative_selector.isEnabled() and self.ui.party_a_representative_selector.currentIndex() == -1:
+            print("party a repre wrong")
+            return
+    
+        if self.ui.party_a_registered_address_edit.isEnabled() and self.ui.party_a_registered_address_edit.text() == "":
+            print("party a address wrong")
+            return
 
-    def generate_text(self):
-        party_a_name = self.widget_dict[Field.PartyAName][1].currentText()
-        party_b_name = self.widget_dict[Field.PartyBName][1].text()
-        curr_locale, date_fmt = sel_locale_and_date_format(self.lang_selector.currentText())
-        start_date = curr_locale.toString(self.widget_dict[Field.StartDate][1].date(), date_fmt)
-        signature_date = curr_locale.toString(self.widget_dict[Field.SignatureDate][1].date(), date_fmt)
+        if self.ui.party_b_name_edit.isEnabled() and self.ui.party_b_name_edit.text() == "":
+            print("party b name wrong")
+            return
 
-        root_path = pathlib.Path(__file__).parent.absolute()
-        template_path = root_path / "contract-templates/cht/中文契約範本.txt"
-        txt = texts_pass_one(template_path, party_a_name, party_b_name, start_date, signature_date)
-        return txt
+        if self.ui.party_b_representative_edit.isEnabled() and self.ui.party_b_representative_edit.text() == "":
+            print("party b repre wrong")
+            return
 
-    @QtCore.Slot()
-    def on_payment_method_changed(self, value):
-        print(value)
+        if self.ui.party_b_registered_address_edit.isEnabled() and self.ui.party_b_registered_address_edit.text() == "":
+            print("party b addres wrong")
+            return
 
-    @QtCore.Slot()
+        if self.ui.payment_method_selector.isEnabled() and self.ui.payment_method_selector.currentIndex() == -1:
+            print("payment wrong")
+            return
+
+        if self.ui.currency_selector.isEnabled() and self.ui.currency_selector.currentIndex() == -1:
+            print("currency wrong")
+            return
+        
+        if self.ui.cross_border_payment_group.isEnabled():
+            if self.ui.cross_border_payment_button_group.checkedId() == -1:
+                print("cross boader wrong")
+                return
+
+        if self.ui.bank_account_edit.isEnabled() and self.ui.bank_account_edit.text() == "":
+            print("bank account wrong")
+            return
+
+        if self.ui.account_name_edit.isEnabled() and self.ui.account_name_edit.text() == "":
+            print("account name wrong")
+            return
+
+        if self.ui.name_of_the_bank_edit.isEnabled() and self.ui.name_of_the_bank_edit.text() == "":
+            print("bank name wrong")
+            return
+
+        if self.ui.bank_code_edit.isEnabled() and self.ui.bank_code_edit.text() == "":
+            print("bank code wrong")
+            return
+
+        if self.ui.name_of_the_branch_edit.isEnabled() and self.ui.name_of_the_branch_edit.text() == "":
+            print("branch name wrong")
+            return
+
+        if self.ui.branch_code_edit.isEnabled() and self.ui.branch_code_edit.text() == "":
+            print("branch code wrong")
+            return
+
+        if self.ui.country_of_the_bank_receiving_the_payment_edit.isEnabled() and self.ui.country_of_the_bank_receiving_the_payment_edit.text() == "":
+            print("country")
+            return
+        
+        if self.ui.other_code_group.isEnabled():
+            if self.ui.other_code_button_group.checkedId() != -1 and self.ui.other_code_edit.text() == "":
+                print("other code wrong")
+                return
+
+        self.ui.execute_button.setEnabled(True)
+
+    def fields2controls(self, fields):
+        controls = []
+        for field in fields:
+            controls.extend(self.field2control(field))
+        
+        return controls
+
+    def field2control(self, field):
+        return {
+            "start_date": [self.ui.start_date_label, self.ui.start_date_selector],
+            "end_date": [self.ui.end_date_label, self.ui.end_date_selector],
+            "party_a_name": [self.ui.party_a_name_label, self.ui.party_a_name_selector],
+            "party_a_representative": [self.ui.party_a_representative_label, self.ui.party_a_representative_selector],
+            "party_a_registered_address": [self.ui.party_a_registered_address_label, self.ui.party_a_registered_address_edit,
+                                           self.ui.party_a_contact_address_label, self.ui.party_a_contact_address_edit],
+            "party_b_name": [self.ui.party_b_name_label, self.ui.party_b_name_edit],
+            "party_b_representative": [self.ui.party_b_representative_label, self.ui.party_b_representative_edit],
+            "party_b_registered_address": [self.ui.party_b_registered_address_label, self.ui.party_b_registered_address_edit,
+                                           self.ui.party_b_contact_address_label, self.ui.party_b_contact_address_edit],
+            "signature_date": [self.ui.signature_date_label, self.ui.signature_date_selector],
+            "payment_method": [self.ui.payment_method_label, self.ui.payment_method_selector],
+            "currency": [self.ui.currency_label, self.ui.currency_selector, self.ui.cross_border_payment_group, self.ui.cross_border_payment_yes, self.ui.cross_border_payment_no],
+            "bank_account": [self.ui.bank_account_label, self.ui.bank_account_edit],
+            "account_name": [self.ui.account_name_label, self.ui.account_name_edit],
+            "name_of_the_bank": [self.ui.name_of_the_bank_label, self.ui.name_of_the_bank_edit],
+            "bank_code": [self.ui.bank_code_label, self.ui.bank_code_edit],
+            "name_of_the_branch": [self.ui.name_of_the_branch_label, self.ui.name_of_the_branch_edit],
+            "branch_code": [self.ui.branch_code_label, self.ui.branch_code_edit],
+            "country_of_the_bank_receiving_the_payment": [self.ui.country_of_the_bank_receiving_the_payment_label, self.ui.country_of_the_bank_receiving_the_payment_edit],
+            "swift_code": [self.ui.swift_code_label, self.ui.swift_code_edit],
+            "other_code": [self.ui.other_code_group, 
+                           self.ui.other_code_cnaps,
+                           self.ui.other_code_skn_code,
+                           self.ui.other_code_bsb_number,
+                           self.ui.other_code_iban_code,
+                           self.ui.other_code_edit]
+        }.get(field)
+    
+    def get_start_date_str(self):
+        return to_date_str(self.ui.lang_selector.currentText(), self.ui.start_date_selector.date())
+    
+    def get_end_date_str(self):
+        return to_date_str(self.ui.lang_selector.currentText(), self.ui.end_date_selector.date())
+    
+    def get_party_a_name(self):
+        return self.ui.party_a_name_selector.currentText()
+    
+    def get_party_a_representative(self):
+        return self.ui.party_a_representative_selector.currentText()
+
+    def get_party_a_registered_address(self):
+        return self.ui.party_a_registered_address_edit.text()
+    
+    def get_party_a_contact_address(self):
+        return self.ui.party_a_contact_address_edit.text()
+    
+    def get_party_b_name(self):
+        return self.ui.party_b_name_edit.text()
+    
+    def get_party_b_representative(self):
+        return self.ui.party_b_representative_edit.text()
+    
+    def get_party_b_registered_address(self):
+        return self.ui.party_b_registered_address_edit.text()
+    
+    def get_party_b_contact_address(self):
+        return self.ui.party_b_contact_address_edit.text()
+    
+    def get_signature_date(self):
+        return to_date_str(self.ui.lang_selector.currentText(), self.ui.signature_date_selector.date())
+    
+    def get_payment_method(self):
+        return "dummy"
+    
+    def get_currency(self):
+        # currency (combo box 十幾種)
+        #   is_cross_border_payment (Yes/No checkbox, always follow currency)
+        self.ui.currency_selector.currentText()
+        button_group = QButtonGroup()
+        button_group.addButton(self.ui.cross_border_payment_yes)
+        button_group.addButton(self.ui.cross_border_payment_no)
+        button_group.checkedButton().text()
+        return "dummy currency + cross border payment"
+    
+    def get_bank_account(self):
+        return self.ui.bank_account_edit.text()
+    
+    def get_account_name(self):
+        return self.ui.account_name_edit.text()
+    
+    def get_name_of_the_bank(self):
+        return self.ui.name_of_the_bank_edit.text()
+    
+    def get_bank_code(self):
+        return self.ui.bank_code_edit.text()
+    
+    def get_name_of_the_branch(self):
+        return self.ui.name_of_the_branch_edit.text()
+    
+    def get_branch_code(self):
+        return self.ui.branch_code_edit.text()
+    
+    def get_country_of_the_bank_receiving_the_payment(self):
+        return self.ui.country_of_the_bank_receiving_the_payment_edit.text()
+    
+    def get_swift_code(self):
+        return self.ui.swift_code_edit.text()
+    
+    def get_other_code(self):
+        # other_code  □CNAPS □SKN CODE □BSB NUMBER □IBAN CODE
+        # button_group = QButtonGroup()
+        # button_group.addButton(self.ui.other_code_cnaps)
+        # button_group.addButton(self.ui.other_code_skn_code)
+        # button_group.addButton(self.ui.other_code_bsb_number)
+        # button_group.addButton(self.ui.other_code_iban_code)
+        # button_group.checkedButton().text()
+        # self.ui.other_code_edit.text()
+        return "other code + optional edit"
+    
+    def get_field_value(self, field):
+        return {
+            "start_date": self.get_start_date_str(),
+            "end_date": self.get_end_date_str(),
+            "party_a_name": self.get_party_a_name(),
+            "party_a_representative": self.get_party_a_representative(),
+            "party_a_registered_address": self.get_party_a_registered_address(),
+            "party_a_contact_address": self.get_party_a_contact_address(),
+            "party_b_name": self.get_party_b_name(),
+            "party_b_representative": self.get_party_b_representative(),
+            "party_b_registered_address": self.get_party_b_registered_address(),
+            "party_b_contact_address": self.get_party_b_contact_address(),
+            "signature_date": self.get_signature_date(),
+            "payment_method": self.get_payment_method(),
+            "bank_account": self.get_bank_account(),
+            "account_name": self.get_account_name(),
+            "name_of_the_bank": self.get_name_of_the_bank(),
+            "bank_code": self.get_bank_code(),
+            "name_of_the_branch": self.get_name_of_the_branch(),
+            "branch_code": self.get_branch_code(),
+            "country_of_the_bank_receiving_the_payment": self.get_country_of_the_bank_receiving_the_payment(),
+            "swift_code": self.get_swift_code(),
+            "other_code": self.get_other_code()
+        }.get(field, None)
+    
+    def get_field_values(self, field_names):
+        return list(map(self.get_field_value, field_names))
+    
+    def read_contract_template(self):
+        template_path = self.get_contract_template_path()
+        print(template_path)
+        return read_utf8(template_path)
+    
+    def get_markdown(self):
+        template = self.read_contract_template()
+        field_names = parse_fields(template)
+        field_values = self.get_field_values(field_names)
+        d = dict(zip(field_names, field_values))
+        return template.format(**d)
+
+    def get_payment_method_md(self):
+        # if payment method active:
+        #     payment_method_md = load_payment_method_template()
+        #     payment_method_fields = parse_fields(payment_method_md)
+        #     payment_method_values = get_field_values(payment_method_fields)
+        #     payment_method_dict = dict(zip(payment_method_fields, payment_method_values))
+        #     return payment_method_md.format(**payment_method_dict)
+        return
+
     def on_execute(self):
-        txt = self.generate_text()
-        pdf.generate(txt)
-        self.show_done()
+        md = self.get_markdown()
+        print(md)
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication([])
-    widget = MyWidget()
-    widget.show()
+    app = QApplication(sys.argv)
+
+    window = MainWindow()
+    window.show()
+
     sys.exit(app.exec_())
