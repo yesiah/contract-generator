@@ -321,28 +321,32 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addItem(self.horizontalSpacer, 0, 3, 1, 1)
 
-        self.cross_boader_payment_group = QGroupBox(self.scrollAreaWidgetContents)
-        self.cross_boader_payment_group.setObjectName(u"cross_boader_payment_group")
-        self.cross_boader_payment_group.setEnabled(False)
-        self.cross_boader_payment_group.setMinimumSize(QSize(0, 50))
-        self.horizontalLayoutWidget_2 = QWidget(self.cross_boader_payment_group)
+        self.cross_border_payment_group = QGroupBox(self.scrollAreaWidgetContents)
+        self.cross_border_payment_group.setObjectName(u"cross_border_payment_group")
+        self.cross_border_payment_group.setEnabled(False)
+        self.cross_border_payment_group.setMinimumSize(QSize(0, 50))
+        self.horizontalLayoutWidget_2 = QWidget(self.cross_border_payment_group)
         self.horizontalLayoutWidget_2.setObjectName(u"horizontalLayoutWidget_2")
         self.horizontalLayoutWidget_2.setGeometry(QRect(10, 20, 131, 31))
         self.horizontalLayout = QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.cross_border_payment_yes = QRadioButton(self.horizontalLayoutWidget_2)
+        self.cross_border_payment_button_group = QButtonGroup(MainWindow)
+        self.cross_border_payment_button_group.setObjectName(u"cross_border_payment_button_group")
+        self.cross_border_payment_button_group.addButton(self.cross_border_payment_yes)
         self.cross_border_payment_yes.setObjectName(u"cross_border_payment_yes")
 
         self.horizontalLayout.addWidget(self.cross_border_payment_yes)
 
         self.cross_border_payment_no = QRadioButton(self.horizontalLayoutWidget_2)
+        self.cross_border_payment_button_group.addButton(self.cross_border_payment_no)
         self.cross_border_payment_no.setObjectName(u"cross_border_payment_no")
 
         self.horizontalLayout.addWidget(self.cross_border_payment_no)
 
 
-        self.gridLayout_2.addWidget(self.cross_boader_payment_group, 1, 3, 1, 1)
+        self.gridLayout_2.addWidget(self.cross_border_payment_group, 1, 3, 1, 1)
 
 
         self.verticalLayout.addLayout(self.gridLayout_2)
@@ -462,6 +466,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.other_code_cnaps = QRadioButton(self.horizontalLayoutWidget)
+        self.other_code_button_group = QButtonGroup(MainWindow)
+        self.other_code_button_group.setObjectName(u"other_code_button_group")
+        self.other_code_button_group.addButton(self.other_code_cnaps)
         self.other_code_cnaps.setObjectName(u"other_code_cnaps")
         self.other_code_cnaps.setEnabled(False)
         font = QFont()
@@ -471,6 +478,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.other_code_cnaps)
 
         self.other_code_skn_code = QRadioButton(self.horizontalLayoutWidget)
+        self.other_code_button_group.addButton(self.other_code_skn_code)
         self.other_code_skn_code.setObjectName(u"other_code_skn_code")
         self.other_code_skn_code.setEnabled(False)
         self.other_code_skn_code.setFont(font)
@@ -478,6 +486,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.other_code_skn_code)
 
         self.other_code_bsb_number = QRadioButton(self.horizontalLayoutWidget)
+        self.other_code_button_group.addButton(self.other_code_bsb_number)
         self.other_code_bsb_number.setObjectName(u"other_code_bsb_number")
         self.other_code_bsb_number.setEnabled(False)
         self.other_code_bsb_number.setFont(font)
@@ -485,6 +494,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.other_code_bsb_number)
 
         self.other_code_iban_code = QRadioButton(self.horizontalLayoutWidget)
+        self.other_code_button_group.addButton(self.other_code_iban_code)
         self.other_code_iban_code.setObjectName(u"other_code_iban_code")
         self.other_code_iban_code.setEnabled(False)
         self.other_code_iban_code.setFont(font)
@@ -526,7 +536,6 @@ class Ui_MainWindow(object):
         self.signature_date_selector.userDateChanged.connect(MainWindow.check_mandatory_fields)
         self.payment_method_selector.currentTextChanged.connect(MainWindow.check_mandatory_fields)
         self.currency_selector.currentTextChanged.connect(MainWindow.check_mandatory_fields)
-        self.cross_boader_payment_group.toggled.connect(MainWindow.check_mandatory_fields)
         self.bank_account_edit.editingFinished.connect(MainWindow.check_mandatory_fields)
         self.account_name_edit.editingFinished.connect(MainWindow.check_mandatory_fields)
         self.name_of_the_bank_edit.editingFinished.connect(MainWindow.check_mandatory_fields)
@@ -536,6 +545,8 @@ class Ui_MainWindow(object):
         self.country_of_the_bank_receiving_the_payment_edit.editingFinished.connect(MainWindow.check_mandatory_fields)
         self.party_a_name_selector.currentTextChanged.connect(MainWindow.on_party_a_name_selector_changed)
         self.execute_button.clicked.connect(MainWindow.on_execute)
+        self.cross_border_payment_button_group.buttonToggled.connect(MainWindow.on_cross_border_payment_button_group_toggled)
+        self.other_code_button_group.buttonToggled.connect(MainWindow.on_other_code_button_group_toggled)
 
         self.lang_selector.setCurrentIndex(-1)
         self.currency_selector.setCurrentIndex(-1)
@@ -581,7 +592,7 @@ class Ui_MainWindow(object):
         self.currency_label.setText(QCoreApplication.translate("MainWindow", u"Currency", None))
         self.payment_method_label.setText(QCoreApplication.translate("MainWindow", u"Payment Method", None))
         self.payment_method_selector.setPlaceholderText(QCoreApplication.translate("MainWindow", u"--- Payment Method ---", None))
-        self.cross_boader_payment_group.setTitle(QCoreApplication.translate("MainWindow", u"Cross Border Payment", None))
+        self.cross_border_payment_group.setTitle(QCoreApplication.translate("MainWindow", u"Cross Border Payment", None))
         self.cross_border_payment_yes.setText(QCoreApplication.translate("MainWindow", u"Yes", None))
         self.cross_border_payment_no.setText(QCoreApplication.translate("MainWindow", u"No", None))
         self.bank_account_edit.setPlaceholderText("")

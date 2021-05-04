@@ -216,66 +216,91 @@ class MainWindow(QMainWindow):
         fields = read_fields(template_path)
         enable_controls(self.fields2controls(fields))
     
+    def on_cross_border_payment_button_group_toggled(self, button, checked):
+        self.check_mandatory_fields()
+    
+    def on_other_code_button_group_toggled(self, button, checked):
+        self.check_mandatory_fields()
+    
     def check_mandatory_fields(self):
+        print("check")
         self.ui.execute_button.setEnabled(False)
         if self.ui.lang_selector.currentIndex() == -1 or self.ui.contract_template_selector.currentIndex() == -1:
+            print("lang wrong")
             return
 
         if self.ui.start_date_selector.isEnabled() and self.ui.end_date_selector.isEnabled() and (self.ui.end_date_selector.date() < self.ui.start_date_selector.data()):
+            print("start date wrong")
             return
         
         if self.ui.party_a_name_selector.isEnabled() and self.ui.party_a_name_selector.currentIndex() == -1:
+            print("party a name wrong")
             return
         
         if self.ui.party_a_representative_selector.isEnabled() and self.ui.party_a_representative_selector.currentIndex() == -1:
+            print("party a repre wrong")
             return
     
         if self.ui.party_a_registered_address_edit.isEnabled() and self.ui.party_a_registered_address_edit.text() == "":
+            print("party a address wrong")
             return
 
         if self.ui.party_b_name_edit.isEnabled() and self.ui.party_b_name_edit.text() == "":
+            print("party b name wrong")
             return
 
         if self.ui.party_b_representative_edit.isEnabled() and self.ui.party_b_representative_edit.text() == "":
+            print("party b repre wrong")
             return
 
         if self.ui.party_b_registered_address_edit.isEnabled() and self.ui.party_b_registered_address_edit.text() == "":
+            print("party b addres wrong")
             return
 
         if self.ui.payment_method_selector.isEnabled() and self.ui.payment_method_selector.currentIndex() == -1:
+            print("payment wrong")
             return
 
         if self.ui.currency_selector.isEnabled() and self.ui.currency_selector.currentIndex() == -1:
+            print("currency wrong")
             return
+        
+        if self.ui.cross_border_payment_group.isEnabled():
+            if self.ui.cross_border_payment_button_group.checkedId() == -1:
+                print("cross boader wrong")
+                return
 
         if self.ui.bank_account_edit.isEnabled() and self.ui.bank_account_edit.text() == "":
+            print("bank account wrong")
             return
 
         if self.ui.account_name_edit.isEnabled() and self.ui.account_name_edit.text() == "":
+            print("account name wrong")
             return
 
         if self.ui.name_of_the_bank_edit.isEnabled() and self.ui.name_of_the_bank_edit.text() == "":
+            print("bank name wrong")
             return
 
         if self.ui.bank_code_edit.isEnabled() and self.ui.bank_code_edit.text() == "":
+            print("bank code wrong")
             return
 
         if self.ui.name_of_the_branch_edit.isEnabled() and self.ui.name_of_the_branch_edit.text() == "":
+            print("branch name wrong")
             return
 
         if self.ui.branch_code_edit.isEnabled() and self.ui.branch_code_edit.text() == "":
+            print("branch code wrong")
             return
 
         if self.ui.country_of_the_bank_receiving_the_payment_edit.isEnabled() and self.ui.country_of_the_bank_receiving_the_payment_edit.text() == "":
+            print("country")
             return
         
-        if self.ui.other_code_edit.isEnabled() and self.ui.other_code_edit == "":
-            button_group = QButtonGroup()
-            button_group.addButton(self.ui.other_code_cnaps)
-            button_group.addButton(self.ui.other_code_skn_code)
-            button_group.addButton(self.ui.other_code_bsb_number)
-            button_group.addButton(self.ui.other_code_iban_code)
-            if button_group.checkedId == -1:
+        if self.ui.other_code_group.isEnabled():
+            if self.ui.other_code_button_group.checkedId() != -1 and self.ui.other_code_edit.text() == "":
+                print("other code wrong")
                 return
 
         self.ui.execute_button.setEnabled(True)
@@ -301,7 +326,7 @@ class MainWindow(QMainWindow):
                                            self.ui.party_b_contact_address_label, self.ui.party_b_contact_address_edit],
             "signature_date": [self.ui.signature_date_label, self.ui.signature_date_selector],
             "payment_method": [self.ui.payment_method_label, self.ui.payment_method_selector],
-            "currency": [self.ui.currency_label, self.ui.currency_selector, self.ui.cross_boader_payment_group, self.ui.cross_border_payment_yes, self.ui.cross_border_payment_no],
+            "currency": [self.ui.currency_label, self.ui.currency_selector, self.ui.cross_border_payment_group, self.ui.cross_border_payment_yes, self.ui.cross_border_payment_no],
             "bank_account": [self.ui.bank_account_label, self.ui.bank_account_edit],
             "account_name": [self.ui.account_name_label, self.ui.account_name_edit],
             "name_of_the_bank": [self.ui.name_of_the_bank_label, self.ui.name_of_the_bank_edit],

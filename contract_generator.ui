@@ -678,7 +678,7 @@
          </spacer>
         </item>
         <item row="1" column="3">
-         <widget class="QGroupBox" name="cross_boader_payment_group">
+         <widget class="QGroupBox" name="cross_border_payment_group">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -706,6 +706,9 @@
               <property name="text">
                <string>Yes</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">cross_border_payment_button_group</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -713,6 +716,9 @@
               <property name="text">
                <string>No</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">cross_border_payment_button_group</string>
+              </attribute>
              </widget>
             </item>
            </layout>
@@ -930,6 +936,9 @@
               <property name="text">
                <string>CNAPS</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">other_code_button_group</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -945,6 +954,9 @@
               <property name="text">
                <string>SKN CODE</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">other_code_button_group</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -960,6 +972,9 @@
               <property name="text">
                <string>BSB NUMBER</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">other_code_button_group</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -975,6 +990,9 @@
               <property name="text">
                <string>IBAN CODE</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">other_code_button_group</string>
+              </attribute>
              </widget>
             </item>
            </layout>
@@ -1239,22 +1257,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>cross_boader_payment_group</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>check_mandatory_fields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>537</x>
-     <y>651</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>395</x>
-     <y>340</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>bank_account_edit</sender>
    <signal>editingFinished()</signal>
    <receiver>MainWindow</receiver>
@@ -1398,6 +1400,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>cross_border_payment_button_group</sender>
+   <signal>buttonToggled(QAbstractButton*,bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_cross_border_payment_button_group_toggled(QAbstractButton*,bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>396</x>
+     <y>340</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>other_code_button_group</sender>
+   <signal>buttonToggled(QAbstractButton*,bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_other_code_button_group_toggled(QAbstractButton*,bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>396</x>
+     <y>340</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_language_selector_changed()</slot>
@@ -1406,5 +1440,11 @@
   <slot>check_mandatory_fields()</slot>
   <slot>on_party_a_name_selector_changed()</slot>
   <slot>on_execute()</slot>
+  <slot>on_cross_border_payment_button_group_toggled(QAbstractButton*,bool)</slot>
+  <slot>on_other_code_button_group_toggled(QAbstractButton*,bool)</slot>
  </slots>
+ <buttongroups>
+  <buttongroup name="cross_border_payment_button_group"/>
+  <buttongroup name="other_code_button_group"/>
+ </buttongroups>
 </ui>
