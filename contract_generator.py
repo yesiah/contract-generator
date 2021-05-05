@@ -139,6 +139,7 @@ class MainWindow(QMainWindow):
 
     def init(self):
         self.init_date_controls()
+        # self.ui.party_b_name_edit.setProperty("is_mandatory", True)
     
     def init_date_controls(self):
         today = QDate.currentDate()
@@ -481,6 +482,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     window = MainWindow()
+    # window.setStyleSheet("""*[is_mandatory="true"]{background-color: pink}""")
     window.show()
 
     sys.exit(app.exec_())
