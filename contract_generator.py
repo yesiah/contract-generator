@@ -32,7 +32,7 @@ import sys
 import pathlib
 import ast
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QButtonGroup
+from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import QFile, QDate, QLocale
 
 from contract_generator_model import Ui_MainWindow
@@ -378,16 +378,14 @@ class MainWindow(QMainWindow):
         return to_date_str(self.ui.lang_selector.currentText(), self.ui.signature_date_selector.date())
     
     def get_payment_method(self):
+        # TODO fill values
         return "dummy"
     
     def get_currency(self):
+        # TODO fill values
         # currency (combo box 十幾種)
         #   is_cross_border_payment (Yes/No checkbox, always follow currency)
         self.ui.currency_selector.currentText()
-        button_group = QButtonGroup()
-        button_group.addButton(self.ui.cross_border_payment_yes)
-        button_group.addButton(self.ui.cross_border_payment_no)
-        button_group.checkedButton().text()
         return "dummy currency + cross border payment"
     
     def get_bank_account(self):
@@ -415,13 +413,8 @@ class MainWindow(QMainWindow):
         return self.ui.swift_code_edit.text()
     
     def get_other_code(self):
+        # TODO fill values
         # other_code  □CNAPS □SKN CODE □BSB NUMBER □IBAN CODE
-        # button_group = QButtonGroup()
-        # button_group.addButton(self.ui.other_code_cnaps)
-        # button_group.addButton(self.ui.other_code_skn_code)
-        # button_group.addButton(self.ui.other_code_bsb_number)
-        # button_group.addButton(self.ui.other_code_iban_code)
-        # button_group.checkedButton().text()
         # self.ui.other_code_edit.text()
         return "other code + optional edit"
     
