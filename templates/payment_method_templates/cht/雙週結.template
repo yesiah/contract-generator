@@ -1,21 +1,57 @@
 雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結
 
-1. 報帳及付款方式
-貨幣
-{currency}
+1. 報帳及付款方式<br>
+貨幣<br>
+{currency}<br>
 
 2. 賬戶資訊
 
-{bank_account}
+<table style="width:90%;margin-left:auto;margin-right:auto;">
+<colgroup>
+    <col span="1" style="width: 30%;">
+    <col span="1" style="width: 30%;">
+    <col span="1" style="width: 20%;">
+    <col span="1" style="width: 20%;">
+</colgroup>
+<tbody>
 
-{account_name}
+<tr>
+<td>Bank Account</td>
+<td colspan=3>{bank_account}</td>
+</tr>
 
-{name_of_the_bank}                                      {bank_code}
+<tr>
+<td>Account Name</td>
+<td colspan=3>{account_name}</td>
+</tr>
 
-{name_of_the_branch}                                      {branch_code}
+<tr>
+<td>Name of the Bank</td>
+<td>{name_of_the_bank}</td>
+<td>Bank Code</td>
+<td>{bank_code}</td>
+</tr>
 
-{swift_code}                                      {country_of_the_bank_receiving_the_payment}
+<tr>
+<td>Name of the Branch</td>
+<td>{name_of_the_branch}</td>
+<td>Branch Code</td>
+<td>{branch_code}</td>
+</tr>
 
-{other_code}
+<tr>
+<td>Swift Code</td>
+<td>{swift_code}</td>
+<td>Country of the Bank Receiving the Payment</td>
+<td>{country_of_the_bank_receiving_the_payment}</td>
+</tr>
+
+<tr>
+<td>Other Code</td>
+<td>{other_code}</td>
+</tr>
+
+</tbody>
+</table>
 
 雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結雙週結

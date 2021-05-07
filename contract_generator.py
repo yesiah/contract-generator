@@ -31,6 +31,7 @@ import os
 import sys
 import pathlib
 import ast
+import markdown
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import QFile, QDate, QLocale
@@ -190,6 +191,7 @@ class MainWindow(QMainWindow):
                     if p.suffix == ".template":
                         self.ui.payment_method_selector.addItem(p.stem)
     
+    # json format, eval as dict
     def load_party_a_template(self):
         template_dir = get_party_a_template_dir(self.ui.lang_selector.currentText())
         for _, _, files in os.walk(template_dir):
@@ -199,7 +201,7 @@ class MainWindow(QMainWindow):
                     txt = f.read().decode('UTF-8')
                     return ast.literal_eval(txt)
         
-        return {}
+        return
     
     def on_party_a_name_selector_changed(self):
         if self.party_a_template:
@@ -379,7 +381,7 @@ class MainWindow(QMainWindow):
     
     def get_payment_method(self):
         # TODO fill values
-        return "dummy"
+        return self.get_payment_method_markdown()
     
     def get_currency(self):
         # TODO fill values
@@ -431,7 +433,15 @@ class MainWindow(QMainWindow):
             "party_b_registered_address": self.get_party_b_registered_address(),
             "party_b_contact_address": self.get_party_b_contact_address(),
             "signature_date": self.get_signature_date(),
-            "payment_method": self.get_payment_method(),
+            "payment_method": self.get_payment_method()
+        }.get(field, None)
+    
+    def get_field_values(self, field_names):
+        return list(map(self.get_field_value, field_names))
+    
+    def get_payment_method_field_value(self, field):
+        return {
+            "currency": self.get_currency(),
             "bank_account": self.get_bank_account(),
             "account_name": self.get_account_name(),
             "name_of_the_bank": self.get_name_of_the_bank(),
@@ -443,12 +453,16 @@ class MainWindow(QMainWindow):
             "other_code": self.get_other_code()
         }.get(field, None)
     
-    def get_field_values(self, field_names):
-        return list(map(self.get_field_value, field_names))
+    def get_payment_method_field_values(self, fields):
+        return list(map(self.get_payment_method_field_value, fields))
     
     def read_contract_template(self):
         template_path = self.get_contract_template_path()
         print(template_path)
+        return read_utf8(template_path)
+    
+    def read_payment_method_template(self):
+        template_path = self.get_payment_method_template_path()
         return read_utf8(template_path)
     
     def get_markdown(self):
@@ -458,18 +472,21 @@ class MainWindow(QMainWindow):
         d = dict(zip(field_names, field_values))
         return template.format(**d)
 
-    def get_payment_method_md(self):
-        # if payment method active:
-        #     payment_method_md = load_payment_method_template()
-        #     payment_method_fields = parse_fields(payment_method_md)
-        #     payment_method_values = get_field_values(payment_method_fields)
-        #     payment_method_dict = dict(zip(payment_method_fields, payment_method_values))
-        #     return payment_method_md.format(**payment_method_dict)
+    def get_payment_method_markdown(self):
+        if self.ui.payment_method_selector.isEnabled():
+            template_txt = self.read_payment_method_template()
+            fields = parse_fields(template_txt)
+            values = self.get_payment_method_field_values(fields)
+            d = dict(zip(fields, values))
+            return template_txt.format(**d)
+
         return
 
     def on_execute(self):
         md = self.get_markdown()
-        print(md)
+        html = markdown.markdown(md)
+        with open("contract.html", "w", encoding="utf-8", errors="xmlcharrefreplace") as f:
+            f.write(html)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
