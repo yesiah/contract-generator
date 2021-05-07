@@ -329,7 +329,8 @@ class MainWindow(QMainWindow):
                                            self.ui.party_b_contact_address_label, self.ui.party_b_contact_address_edit],
             "signature_date": [self.ui.signature_date_label, self.ui.signature_date_selector],
             "payment_method": [self.ui.payment_method_label, self.ui.payment_method_selector],
-            "currency": [self.ui.currency_label, self.ui.currency_selector, self.ui.cross_border_payment_group, self.ui.cross_border_payment_yes, self.ui.cross_border_payment_no],
+            "currency": [self.ui.currency_label, self.ui.currency_selector],
+            "cross_border_payment": [self.ui.cross_border_payment_group, self.ui.cross_border_payment_yes, self.ui.cross_border_payment_no],
             "bank_account": [self.ui.bank_account_label, self.ui.bank_account_edit],
             "account_name": [self.ui.account_name_label, self.ui.account_name_edit],
             "name_of_the_bank": [self.ui.name_of_the_bank_label, self.ui.name_of_the_bank_edit],
@@ -380,15 +381,21 @@ class MainWindow(QMainWindow):
         return to_date_str(self.ui.lang_selector.currentText(), self.ui.signature_date_selector.date())
     
     def get_payment_method(self):
-        # TODO fill values
         return self.get_payment_method_markdown()
     
     def get_currency(self):
-        # TODO fill values
-        # currency (combo box 十幾種)
-        #   is_cross_border_payment (Yes/No checkbox, always follow currency)
-        self.ui.currency_selector.currentText()
-        return "dummy currency + cross border payment"
+        return self.ui.currency_selector.currentText()
+    
+    def get_cross_border_payment(self):
+        check_box_form = """<input type="checkbox" {yes_checked}> <label>Yes</label> <input type="checkbox" {no_checked}> <label>No</label>"""
+        yes_checked = ""
+        no_checked = ""
+        if self.ui.cross_border_payment_button_group.checkedButton().text() == "Yes":
+            yes_checked = "checked"
+        else:
+            no_checked = "checked"
+        
+        return check_box_form.format(yes_checked=yes_checked, no_checked=no_checked)
     
     def get_bank_account(self):
         return self.ui.bank_account_edit.text()
@@ -442,6 +449,7 @@ class MainWindow(QMainWindow):
     def get_payment_method_field_value(self, field):
         return {
             "currency": self.get_currency(),
+            "cross_border_payment": self.get_cross_border_payment(),
             "bank_account": self.get_bank_account(),
             "account_name": self.get_account_name(),
             "name_of_the_bank": self.get_name_of_the_bank(),
